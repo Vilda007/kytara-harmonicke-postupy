@@ -1,0 +1,346 @@
+<!doctype html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Harmonické postupy na kytaru</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #faf9f5;
+    --fg: #172033;
+    --muted: #5b6475;
+    --line: #64748b;
+    --neutral: #e8e4d8;
+    --tonic: #2f6b4f;
+    --sub: #8a6d3b;
+    --dom: #b04a2f;
+    --vin: #5b6478;
+    --tonicbg: #d8ecdf;
+    --subbg: #f0e6d2;
+    --dombg: #f3ded5;
+    --vinbg: #e2e6ea;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 14px/1.4 ui-sans-serif, system-ui, -apple-system, "Segoe UI", "DejaVu Sans", sans-serif;
+  }
+  main { max-width: 1540px; margin: 28px auto 20px; padding: 0 20px; }
+  svg { width: 100%; height: auto; display: block; }
+  .title { font-size: 28px; font-weight: 700; fill: var(--fg); }
+  .subtitle { font-size: 14px; fill: var(--muted); }
+  .ptitle { font-size: 18px; font-weight: 700; fill: var(--fg); }
+  .label { font-size: 15px; font-weight: 700; fill: var(--fg); }
+  .small { font-size: 12px; fill: var(--muted); }
+  .chip { stroke: var(--line); stroke-width: 1; }
+  .tchip { fill: var(--neutral); }
+  .mchip { fill: #edf0f4; }
+  .cell { fill: #f4f2ec; stroke: var(--line); stroke-width: 0.8; }
+  .sline { stroke: var(--line); stroke-width: 1.2; }
+  .fline { stroke: #b6b2a6; stroke-width: 0.8; }
+  .dot { fill: #1f2937; }
+  .edge { stroke: var(--dom); stroke-width: 2.2; fill: none; }
+  .panel { fill: #ffffff; stroke: #d7d3c8; stroke-width: 1; }
+  .roman { font-weight: 700; font-size: 20px; }
+  .ch { font-weight: 800; font-size: 17px; }
+</style>
+<main>
+<svg viewBox="0 0 1500 1160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram harmonických postupů na kytaru">
+  <defs>
+    <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L8,4.5 L0,9 z" fill="#b04a2f"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="130" y="52" class="title">Harmonické postupy na kytaru</text>
+  <text x="130" y="78" class="subtitle">Kruh kvint · funkce akordů · osvědčené postupy · transpozice barré tvary</text>
+
+  <!-- ===== KRUH KVINT (levá polovina) ===== -->
+  <!-- connector first: dominantový tah G -> C -->
+  <path d="M 497 330 Q 458 252 380 288" class="edge" marker-end="url(#arr)"/>
+  <text x="500" y="270" class="small" fill="#b04a2f">dominantový tah (V→I)</text>
+
+  <circle cx="370" cy="540" r="292" fill="none" stroke="#d7d3c8" stroke-width="1"/>
+  <circle cx="370" cy="540" r="172" fill="none" stroke="#d7d3c8" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- major chips (k=0..11, po směru hodinových ručiček) -->
+  <rect x="343" y="282" width="54" height="30" rx="15" class="chip" fill="#d8ecdf" stroke-width="2"/>
+  <text x="370" y="302" text-anchor="middle" class="label">C</text>
+
+  <rect x="462" y="310" width="54" height="30" rx="15" class="chip" fill="#f3ded5"/>
+  <text x="489" y="330" text-anchor="middle" class="label">G</text>
+
+  <rect x="555" y="400" width="54" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="582" y="420" text-anchor="middle" class="label">D</text>
+
+  <rect x="588" y="525" width="54" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="615" y="545" text-anchor="middle" class="label">A</text>
+
+  <rect x="555" y="647" width="54" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="582" y="667" text-anchor="middle" class="label">E</text>
+
+  <rect x="462" y="737" width="54" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="489" y="757" text-anchor="middle" class="label">B</text>
+
+  <rect x="342" y="770" width="58" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="371" y="790" text-anchor="middle" class="label" font-size="13">F♯/G♭</text>
+
+  <rect x="220" y="737" width="58" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="249" y="757" text-anchor="middle" class="label" font-size="13">D♭/C♯</text>
+
+  <rect x="130" y="647" width="58" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="159" y="667" text-anchor="middle" class="label" font-size="13">A♭/G♯</text>
+
+  <rect x="98" y="525" width="54" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="125" y="545" text-anchor="middle" class="label" font-size="13">E♭</text>
+
+  <rect x="130" y="400" width="58" height="30" rx="15" class="chip" fill="#e8e4d8"/>
+  <text x="159" y="420" text-anchor="middle" class="label" font-size="13">B♭</text>
+
+  <rect x="218" y="310" width="54" height="30" rx="15" class="chip" fill="#f0e6d2"/>
+  <text x="245" y="330" text-anchor="middle" class="label">F</text>
+
+  <!-- minor chips (relativní mol) -->
+  <rect x="346" y="416" width="48" height="26" rx="13" class="chip" fill="#dce4ec" stroke-width="1.5"/>
+  <text x="370" y="434" text-anchor="middle" class="label" font-size="13">Am</text>
+
+  <rect x="401" y="431" width="48" height="26" rx="13" class="chip" fill="#ece5df" stroke="#b04a2f" stroke-width="1.2"/>
+  <text x="425" y="449" text-anchor="middle" class="label" font-size="13">Em</text>
+
+  <rect x="441" y="472" width="48" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="465" y="490" text-anchor="middle" class="label" font-size="13">Bm</text>
+
+  <rect x="456" y="527" width="48" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="480" y="545" text-anchor="middle" class="label" font-size="13">F♯m</text>
+
+  <rect x="441" y="582" width="48" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="465" y="600" text-anchor="middle" class="label" font-size="13">C♯m</text>
+
+  <rect x="401" y="623" width="48" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="425" y="641" text-anchor="middle" class="label" font-size="13">G♯m</text>
+
+  <rect x="340" y="637" width="64" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="372" y="655" text-anchor="middle" class="label" font-size="10.5">D♯m/E♭m</text>
+
+  <rect x="290" y="623" width="52" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="316" y="641" text-anchor="middle" class="label" font-size="12">B♭m</text>
+
+  <rect x="250" y="582" width="48" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="274" y="600" text-anchor="middle" class="label" font-size="13">Fm</text>
+
+  <rect x="236" y="527" width="48" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="260" y="545" text-anchor="middle" class="label" font-size="13">Cm</text>
+
+  <rect x="250" y="472" width="48" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="274" y="490" text-anchor="middle" class="label" font-size="13">Gm</text>
+
+  <rect x="290" y="431" width="48" height="26" rx="13" class="chip" fill="#ecf0f4"/>
+  <text x="314" y="449" text-anchor="middle" class="label" font-size="13">Dm</text>
+
+  <!-- pravidlo pod kruhem -->
+  <text x="370" y="852" text-anchor="middle" class="small">Tvá tónina = pozice na kruhu: V(dominanta) je soused doprava, IV(subdominanta) doleva,</text>
+  <text x="370" y="870" text-anchor="middle" class="small">vi (relativní mol) najdeš ve vnitřním kruhu pod tónikou. Příklad pro C vyznačený barvami.</text>
+
+  <!-- ===== PANEL A: diatonické akordy ===== -->
+  <rect x="740" y="110" width="720" height="396" rx="10" class="panel"/>
+  <text x="764" y="146" class="ptitle">Diatonické akordy tóniny C-dur</text>
+  <text x="1436" y="146" text-anchor="end" class="small">funkce: <tspan fill="#2f6b4f" font-weight="700">I</tspan> · <tspan fill="#8a6d3b" font-weight="700">IV</tspan> · <tspan fill="#b04a2f" font-weight="700">V</tspan> · <tspan fill="#5b6478" font-weight="700">vi</tspan></text>
+
+  <!-- chips: I..vii° -->
+  <rect x="762" y="166" width="88" height="42" rx="9" class="chip" fill="#d8ecdf"/>
+  <text x="806" y="188" text-anchor="middle" class="label" font-size="14">I · C</text>
+  <text x="806" y="201" text-anchor="middle" class="small" font-size="10">tónika</text>
+
+  <rect x="856" y="166" width="88" height="42" rx="9" class="chip" fill="#f4f2ec"/>
+  <text x="900" y="188" text-anchor="middle" class="label" font-size="14">ii · Dm</text>
+  <text x="900" y="201" text-anchor="middle" class="small" font-size="10">subdom.</text>
+
+  <rect x="950" y="166" width="88" height="42" rx="9" class="chip" fill="#f4f2ec"/>
+  <text x="994" y="188" text-anchor="middle" class="label" font-size="14">iii · Em</text>
+  <text x="994" y="201" text-anchor="middle" class="small" font-size="10">mezikrok</text>
+
+  <rect x="1044" y="166" width="88" height="42" rx="9" class="chip" fill="#f0e6d2"/>
+  <text x="1088" y="188" text-anchor="middle" class="label" font-size="14">IV · F</text>
+  <text x="1088" y="201" text-anchor="middle" class="small" font-size="10">subdom.</text>
+
+  <rect x="1138" y="166" width="88" height="42" rx="9" class="chip" fill="#f3ded5"/>
+  <text x="1182" y="188" text-anchor="middle" class="label" font-size="14">V · G</text>
+  <text x="1182" y="201" text-anchor="middle" class="small" font-size="10">dominanta</text>
+
+  <rect x="1232" y="166" width="88" height="42" rx="9" class="chip" fill="#e2e6ea"/>
+  <text x="1276" y="188" text-anchor="middle" class="label" font-size="14">vi · Am</text>
+  <text x="1276" y="201" text-anchor="middle" class="small" font-size="10">rel. mol</text>
+
+  <rect x="1326" y="166" width="88" height="42" rx="9" class="chip" fill="#f4f2ec"/>
+  <text x="1370" y="188" text-anchor="middle" class="label" font-size="14">vii° · Bdim</text>
+  <text x="1370" y="201" text-anchor="middle" class="small" font-size="10">vedlejší</text>
+
+  <!-- hmatová schémata (6 krabic) -->
+  <!-- C: x32010 -->
+  <g transform="translate(762,248)">
+    <text x="0" y="-6" font-size="10" fill="#8a8074" text-anchor="middle"></text>
+    <text x="17" y="0" font-size="10" fill="#8a8074" text-anchor="middle">✕</text><text x="69" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="103" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <line x1="10" y1="8" x2="10" y2="96" class="sline"/><line x1="27" y1="8" x2="27" y2="96" class="sline"/><line x1="44" y1="8" x2="44" y2="96" class="sline"/><line x1="61" y1="8" x2="61" y2="96" class="sline"/><line x1="78" y1="8" x2="78" y2="96" class="sline"/><line x1="95" y1="8" x2="95" y2="96" class="sline"/>
+    <line x1="10" y1="8" x2="95" y2="8" stroke="#1f2937" stroke-width="2.4"/>
+    <line x1="10" y1="30" x2="95" y2="30" class="fline"/><line x1="10" y1="52" x2="95" y2="52" class="fline"/><line x1="10" y1="74" x2="95" y2="74" class="fline"/><line x1="10" y1="96" x2="95" y2="96" class="fline"/>
+    <circle cx="27" cy="63" r="7.5" class="dot"/><circle cx="44" cy="41" r="7.5" class="dot"/><circle cx="78" cy="19" r="7.5" class="dot"/>
+    <text x="52" y="118" text-anchor="middle" class="ch">C</text>
+    <text x="52" y="134" text-anchor="middle" class="small" font-size="10">I · tónika</text>
+  </g>
+  <!-- Dm: xx0231 -->
+  <g transform="translate(865,248)">
+    <text x="10" y="0" font-size="10" fill="#8a8074" text-anchor="middle">✕</text><text x="27" y="0" font-size="10" fill="#8a8074" text-anchor="middle">✕</text><text x="78" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="95" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <line x1="10" y1="8" x2="10" y2="96" class="sline"/><line x1="27" y1="8" x2="27" y2="96" class="sline"/><line x1="44" y1="8" x2="44" y2="96" class="sline"/><line x1="61" y1="8" x2="61" y2="96" class="sline"/><line x1="78" y1="8" x2="78" y2="96" class="sline"/><line x1="95" y1="8" x2="95" y2="96" class="sline"/>
+    <line x1="10" y1="8" x2="95" y2="8" stroke="#1f2937" stroke-width="2.4"/>
+    <line x1="10" y1="30" x2="95" y2="30" class="fline"/><line x1="10" y1="52" x2="95" y2="52" class="fline"/><line x1="10" y1="74" x2="95" y2="74" class="fline"/><line x1="10" y1="96" x2="95" y2="96" class="fline"/>
+    <circle cx="61" cy="41" r="7.5" class="dot"/><circle cx="78" cy="63" r="7.5" class="dot"/><circle cx="95" cy="19" r="7.5" class="dot"/>
+    <text x="52" y="118" text-anchor="middle" class="ch">Dm</text>
+    <text x="52" y="134" text-anchor="middle" class="small" font-size="10">ii · subdom.</text>
+  </g>
+  <!-- Em: 022000 -->
+  <g transform="translate(968,248)">
+    <text x="10" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="95" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="103" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <line x1="10" y1="8" x2="10" y2="96" class="sline"/><line x1="27" y1="8" x2="27" y2="96" class="sline"/><line x1="44" y1="8" x2="44" y2="96" class="sline"/><line x1="61" y1="8" x2="61" y2="96" class="sline"/><line x1="78" y1="8" x2="78" y2="96" class="sline"/><line x1="95" y1="8" x2="95" y2="96" class="sline"/>
+    <line x1="10" y1="8" x2="95" y2="8" stroke="#1f2937" stroke-width="2.4"/>
+    <line x1="10" y1="30" x2="95" y2="30" class="fline"/><line x1="10" y1="52" x2="95" y2="52" class="fline"/><line x1="10" y1="74" x2="95" y2="74" class="fline"/><line x1="10" y1="96" x2="95" y2="96" class="fline"/>
+    <circle cx="27" cy="41" r="7.5" class="dot"/><circle cx="44" cy="41" r="7.5" class="dot"/>
+    <text x="52" y="118" text-anchor="middle" class="ch">Em</text>
+    <text x="52" y="134" text-anchor="middle" class="small" font-size="10">iii</text>
+  </g>
+  <!-- F: 133211 -->
+  <g transform="translate(1071,248)">
+    <circle cx="10" cy="19" r="7.5" class="dot"/><circle cx="27" cy="19" r="7.5" class="dot"/><circle cx="44" cy="67" r="7.5" class="dot"/><circle cx="61" cy="41" r="7.5" class="dot"/><circle cx="78" cy="19" r="7.5" class="dot"/><circle cx="95" cy="19" r="7.5" class="dot"/>
+    <line x1="10" y1="8" x2="10" y2="96" class="sline"/><line x1="27" y1="8" x2="27" y2="96" class="sline"/><line x1="44" y1="8" x2="44" y2="96" class="sline"/><line x1="61" y1="8" x2="61" y2="96" class="sline"/><line x1="78" y1="8" x2="78" y2="96" class="sline"/><line x1="95" y1="8" x2="95" y2="96" class="sline"/>
+    <line x1="10" y1="8" x2="95" y2="8" stroke="#1f2937" stroke-width="2.4"/>
+    <line x1="10" y1="30" x2="95" y2="30" class="fline"/><line x1="10" y1="52" x2="95" y2="52" class="fline"/><line x1="10" y1="74" x2="95" y2="74" class="fline"/><line x1="10" y1="96" x2="95" y2="96" class="fline"/>
+    <text x="52" y="118" text-anchor="middle" class="ch">F</text>
+    <text x="52" y="134" text-anchor="middle" class="small" font-size="10">IV · barré</text>
+  </g>
+  <!-- G: 320003 -->
+  <g transform="translate(1174,248)">
+    <text x="44" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="61" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="78" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="95" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <circle cx="10" cy="63" r="7.5" class="dot"/><circle cx="27" cy="41" r="7.5" class="dot"/><circle cx="95" cy="63" r="7.5" class="dot"/>
+    <line x1="10" y1="8" x2="10" y2="96" class="sline"/><line x1="27" y1="8" x2="27" y2="96" class="sline"/><line x1="44" y1="8" x2="44" y2="96" class="sline"/><line x1="61" y1="8" x2="61" y2="96" class="sline"/><line x1="78" y1="8" x2="78" y2="96" class="sline"/><line x1="95" y1="8" x2="95" y2="96" class="sline"/>
+    <line x1="10" y1="8" x2="95" y2="8" stroke="#1f2937" stroke-width="2.4"/>
+    <line x1="10" y1="30" x2="95" y2="30" class="fline"/><line x1="10" y1="52" x2="95" y2="52" class="fline"/><line x1="10" y1="74" x2="95" y2="74" class="fline"/><line x1="10" y1="96" x2="95" y2="96" class="fline"/>
+    <text x="52" y="118" text-anchor="middle" class="ch">G</text>
+    <text x="52" y="134" text-anchor="middle" class="small" font-size="10">V · dominanta</text>
+  </g>
+  <!-- Am: x02210 -->
+  <g transform="translate(1277,248)">
+    <text x="10" y="0" font-size="10" fill="#8a8074" text-anchor="middle">✕</text><text x="27" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="103" y="0" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <circle cx="44" cy="41" r="7.5" class="dot"/><circle cx="61" cy="41" r="7.5" class="dot"/><circle cx="78" cy="19" r="7.5" class="dot"/>
+    <line x1="10" y1="8" x2="10" y2="96" class="sline"/><line x1="27" y1="8" x2="27" y2="96" class="sline"/><line x1="44" y1="8" x2="44" y2="96" class="sline"/><line x1="61" y1="8" x2="61" y2="96" class="sline"/><line x1="78" y1="8" x2="78" y2="96" class="sline"/><line x1="95" y1="8" x2="95" y2="96" class="sline"/>
+    <line x1="10" y1="8" x2="95" y2="8" stroke="#1f2937" stroke-width="2.4"/>
+    <line x1="10" y1="30" x2="95" y2="30" class="fline"/><line x1="10" y1="52" x2="95" y2="52" class="fline"/><line x1="10" y1="74" x2="95" y2="74" class="fline"/><line x1="10" y1="96" x2="95" y2="96" class="fline"/>
+    <text x="52" y="118" text-anchor="middle" class="ch">Am</text>
+    <text x="52" y="134" text-anchor="middle" class="small" font-size="10">vi · rel. mol</text>
+  </g>
+
+  <!-- poznámky panelu A -->
+  <text x="764" y="452" class="small">F lehčí varianta: Fmaj7 (xx3210). Bdim se na kytaru prakticky vynechává — obvykle stačí B7 (x21202).</text>
+  <text x="764" y="486" class="small">Značení: ○ = prázdná struna, ✕ = netrhaná, tečka = prst na pražci (šest strun: nejnižší E vlevo).</text>
+
+  <!-- ===== PANEL B: osvědčené postupy ===== -->
+  <rect x="740" y="520" width="720" height="330" rx="10" class="panel"/>
+  <text x="764" y="556" class="ptitle">Osvědčené postupy <tspan class="small">(v C-dur)</tspan></text>
+
+  <!-- řádky -->
+  <text x="764" y="596" class="roman"><tspan fill="#2f6b4f">I</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#8a6d3b">IV</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#b04a2f">V</tspan></text>
+  <text x="1000" y="596" font-size="18" font-weight="600">C – F – G</text>
+  <text x="1436" y="596" text-anchor="end" class="small">základ rocku a folku</text>
+
+  <text x="764" y="640" class="roman"><tspan fill="#2f6b4f">I</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#b04a2f">V</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#5b6478">vi</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#8a6d3b">IV</tspan></text>
+  <text x="1000" y="640" font-size="18" font-weight="600">C – G – Am – F</text>
+  <text x="1436" y="640" text-anchor="end" class="small">popová „čtyřka“</text>
+
+  <text x="764" y="684" class="roman"><tspan fill="#5b6478">vi</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#8a6d3b">IV</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#2f6b4f">I</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#b04a2f">V</tspan></text>
+  <text x="1000" y="684" font-size="18" font-weight="600">Am – F – C – G</text>
+  <text x="1436" y="684" text-anchor="end" class="small">tutéž čtyřka, ale domov v molu</text>
+
+  <text x="764" y="728" class="roman"><tspan fill="#2f6b4f">I</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#5b6478">vi</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#8a6d3b">IV</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#b04a2f">V</tspan></text>
+  <text x="1000" y="728" font-size="18" font-weight="600">C – Am – F – G</text>
+  <text x="1436" y="728" text-anchor="end" class="small">doo-wop 50. let</text>
+
+  <text x="764" y="772" class="roman"><tspan fill="#64748b">ii</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#b04a2f">V</tspan> <tspan fill="#64748b">–</tspan> <tspan fill="#2f6b4f">I</tspan></text>
+  <text x="1000" y="772" font-size="18" font-weight="600">Dm – G – C</text>
+  <text x="1436" y="772" text-anchor="end" class="small">jazzový obrat</text>
+
+  <!-- blues -->
+  <text x="764" y="812" class="label" font-size="14">Blues, 12 taktů:</text>
+  <g>
+    <rect x="880" y="796" width="42" height="26" rx="5" class="cell"/><text x="901" y="813" text-anchor="middle" class="small" fill="#172033">C7</text>
+    <rect x="924" y="796" width="42" height="26" rx="5" class="cell"/><text x="945" y="813" text-anchor="middle" class="small" fill="#172033">C7</text>
+    <rect x="968" y="796" width="42" height="26" rx="5" class="cell"/><text x="989" y="813" text-anchor="middle" class="small" fill="#172033">C7</text>
+    <rect x="1012" y="796" width="42" height="26" rx="5" class="cell"/><text x="1033" y="813" text-anchor="middle" class="small" fill="#172033">C7</text>
+    <rect x="1062" y="796" width="42" height="26" rx="5" class="cell"/><text x="1083" y="813" text-anchor="middle" class="small" fill="#172033">F7</text>
+    <rect x="1106" y="796" width="42" height="26" rx="5" class="cell"/><text x="1127" y="813" text-anchor="middle" class="small" fill="#172033">F7</text>
+    <rect x="1150" y="796" width="42" height="26" rx="5" class="cell"/><text x="1171" y="813" text-anchor="middle" class="small" fill="#172033">C7</text>
+    <rect x="1194" y="796" width="42" height="26" rx="5" class="cell"/><text x="1215" y="813" text-anchor="middle" class="small" fill="#172033">C7</text>
+    <rect x="1244" y="796" width="42" height="26" rx="5" class="cell"/><text x="1265" y="813" text-anchor="middle" class="small" fill="#172033">G7</text>
+    <rect x="1288" y="796" width="42" height="26" rx="5" class="cell"/><text x="1309" y="813" text-anchor="middle" class="small" fill="#172033">F7</text>
+    <rect x="1332" y="796" width="42" height="26" rx="5" class="cell"/><text x="1353" y="813" text-anchor="middle" class="small" fill="#172033">C7</text>
+    <rect x="1376" y="796" width="42" height="26" rx="5" class="cell"/><text x="1397" y="813" text-anchor="middle" class="small" fill="#172033">G7</text>
+  </g>
+
+  <!-- ===== PATNÍ PÁS: barré transpozice ===== -->
+  <rect x="60" y="880" width="1400" height="254" rx="10" class="panel"/>
+  <text x="84" y="916" class="ptitle">Transpozice na kytaře: barré tvar = jeden úchop, libovolná tónina</text>
+  <text x="1436" y="916" text-anchor="end" class="small">tónina = pražec, na němž sedí tónika</text>
+
+  <!-- E-dur tvar: 022100 -->
+  <g transform="translate(90,934)">
+    <text x="0" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="95" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <circle cx="27" cy="33" r="7.5" class="dot"/><circle cx="44" cy="33" r="7.5" class="dot"/><circle cx="61" cy="11" r="7.5" class="dot"/>
+    <line x1="10" y1="0" x2="10" y2="88" class="sline" opacity="0.4"/><line x1="27" y1="0" x2="27" y2="88" class="sline" opacity="0.4"/><line x1="44" y1="0" x2="44" y2="88" class="sline" opacity="0.4"/><line x1="61" y1="0" x2="61" y2="88" class="sline" opacity="0.4"/><line x1="78" y1="0" x2="78" y2="88" class="sline" opacity="0.4"/><line x1="95" y1="0" x2="95" y2="88" class="sline" opacity="0.4"/>
+    <circle cx="10" cy="11" r="5.5" fill="none" stroke="#2f6b4f" stroke-width="2.4"/>
+    <text x="52" y="110" text-anchor="middle" class="ch" font-size="15">E-dur tvar</text>
+    <text x="52" y="126" text-anchor="middle" class="small" font-size="10">tónika na 6. struně</text>
+    <text x="52" y="152" text-anchor="middle" class="small" font-size="11">F=1 · G=3 · A=5</text>
+    <text x="52" y="167" text-anchor="middle" class="small" font-size="11">B=7 · C=8 · D=10</text>
+  </g>
+  <!-- A-dur tvar: x02220 -->
+  <g transform="translate(410,934)">
+    <text x="10" y="-6" font-size="10" fill="#8a8074" text-anchor="middle">✕</text><text x="27" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="95" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <circle cx="44" cy="33" r="7.5" class="dot"/><circle cx="61" cy="33" r="7.5" class="dot"/><circle cx="78" cy="33" r="7.5" class="dot"/>
+    <line x1="10" y1="0" x2="10" y2="88" class="sline" opacity="0.4"/><line x1="27" y1="0" x2="27" y2="88" class="sline" opacity="0.4"/><line x1="44" y1="0" x2="44" y2="88" class="sline" opacity="0.4"/><line x1="61" y1="0" x2="61" y2="88" class="sline" opacity="0.4"/><line x1="78" y1="0" x2="78" y2="88" class="sline" opacity="0.4"/><line x1="95" y1="0" x2="95" y2="88" class="sline" opacity="0.4"/>
+    <circle cx="27" cy="11" r="5.5" fill="none" stroke="#2f6b4f" stroke-width="2.4"/>
+    <text x="52" y="110" text-anchor="middle" class="ch" font-size="15">A-dur tvar</text>
+    <text x="52" y="126" text-anchor="middle" class="small" font-size="10">tónika na 5. struně</text>
+    <text x="52" y="152" text-anchor="middle" class="small" font-size="11">B=2 · C=3 · D=5</text>
+    <text x="52" y="167" text-anchor="middle" class="small" font-size="11">E=7 · F=8</text>
+  </g>
+  <!-- Em-mol tvar: 022000 -->
+  <g transform="translate(730,934)">
+    <text x="0" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="95" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="103" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <circle cx="27" cy="33" r="7.5" class="dot"/><circle cx="44" cy="33" r="7.5" class="dot"/>
+    <line x1="10" y1="0" x2="10" y2="88" class="sline" opacity="0.4"/><line x1="27" y1="0" x2="27" y2="88" class="sline" opacity="0.4"/><line x1="44" y1="0" x2="44" y2="88" class="sline" opacity="0.4"/><line x1="61" y1="0" x2="61" y2="88" class="sline" opacity="0.4"/><line x1="78" y1="0" x2="78" y2="88" class="sline" opacity="0.4"/><line x1="95" y1="0" x2="95" y2="88" class="sline" opacity="0.4"/>
+    <circle cx="10" cy="11" r="5.5" fill="none" stroke="#2f6b4f" stroke-width="2.4"/>
+    <text x="52" y="110" text-anchor="middle" class="ch" font-size="15">Em-mol tvar</text>
+    <text x="52" y="126" text-anchor="middle" class="small" font-size="10">tónika na 6. struně</text>
+    <text x="52" y="152" text-anchor="middle" class="small" font-size="11">F♯m=2 · Gm=3 · Am=5</text>
+    <text x="52" y="167" text-anchor="middle" class="small" font-size="11">Bm=7 · Dm=10</text>
+  </g>
+  <!-- Am-mol tvar: x02210 -->
+  <g transform="translate(1050,934)">
+    <text x="10" y="-6" font-size="10" fill="#8a8074" text-anchor="middle">✕</text><text x="27" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text><text x="103" y="-6" font-size="10" fill="#64748b" text-anchor="middle">○</text>
+    <circle cx="44" cy="33" r="7.5" class="dot"/><circle cx="61" cy="33" r="7.5" class="dot"/><circle cx="78" cy="11" r="7.5" class="dot"/>
+    <line x1="10" y1="0" x2="10" y2="88" class="sline" opacity="0.4"/><line x1="27" y1="0" x2="27" y2="88" class="sline" opacity="0.4"/><line x1="44" y1="0" x2="44" y2="88" class="sline" opacity="0.4"/><line x1="61" y1="0" x2="61" y2="88" class="sline" opacity="0.4"/><line x1="78" y1="0" x2="78" y2="88" class="sline" opacity="0.4"/><line x1="95" y1="0" x2="95" y2="88" class="sline" opacity="0.4"/>
+    <circle cx="27" cy="11" r="5.5" fill="none" stroke="#2f6b4f" stroke-width="2.4"/>
+    <text x="52" y="110" text-anchor="middle" class="ch" font-size="15">Am-mol tvar</text>
+    <text x="52" y="126" text-anchor="middle" class="small" font-size="10">tónika na 5. struně</text>
+    <text x="52" y="152" text-anchor="middle" class="small" font-size="11">Bm=2 · Cm=3 · Dm=5</text>
+    <text x="52" y="167" text-anchor="middle" class="small" font-size="11">Em=7 · Fm=8</text>
+  </g>
+
+  <!-- vysvětlení barré -->
+  <text x="1195" y="950" class="small" font-weight="600">Jak se to čte:</text>
+  <text x="1195" y="970" class="small">Barré = prst přes všechny struny na zvoleném</text>
+  <text x="1195" y="986" class="small">pražci; tvar zůstává stejný — mění se jen pozice.</text>
+  <text x="1195" y="1008" class="small">Zelený kroužek = kde „sedí tónika“ (název akordu).</text>
+  <text x="1195" y="1030" class="small">Postupy z panelu platí takhle v KAŽDÉ tónině:</text>
+  <text x="1195" y="1050" class="small">C–G–Am–F posouváš podle kruhu kvint,</text>
+  <text x="1195" y="1070" class="small">např. G-dur: G–D–Em–C (posun o 7 pražců).</text>
+</svg>
+</main>

@@ -1,0 +1,34 @@
+# Harmonické postupy na kytaru
+
+Diagramy harmonických (akordových) postupů pro **12 dur tónin** — C, G, D, A, E, B, F♯, D♭, A♭, E♭, B♭, F (pořadí dle kruhu kvint).
+
+Každá strana (A4) obsahuje:
+- **Kruh kvint** se zvýrazněnou tóninou — I = zelená, V = červená, IV = okr, vi = modrá; šipka = dominantový tah (V→I). Pravidlo: *V je soused doprava, IV doleva, vi ve vnitřním kruhu pod tónikou.*
+- **Diatonické akordy** dané tóniny s hmatovými schématy — u barré je uveden **počáteční pražec**; vii° zvlášť s praktickou náhradou (dominantový septimový akord).
+- **Osvědčené postupy** (I–IV–V, popová čtyřka, doo-wop, ii–V–I) + **blues 12 taktů** — vše přepsané do dané tóniny.
+- **Barré tvary** (E-dur, A-dur, Em-mol, Am-mol) a tip **„Nejsnazší cesta"** (capo + tvary snadné tóniny).
+
+## Soubory
+
+| Soubor | Popis |
+| --- | --- |
+| `postupy-vsechny-toniny.html` | 12stránkový A4 dokument — zdroj (otevři v prohlížeči / vytiskni) |
+| `harmonic-prog-guitar-all-keys.pdf` | hotový PDF export (A4, 12 stránek) |
+| `harmonic-prog-guitar.png` | PNG úvodní stránky (C-dur) |
+| `diagram.html` | jednostránkový poster (C-dur) |
+| `kytara-gen.py` | generátor — datová tabulka tónin → HTML |
+
+## Jak upravit
+
+1. **Přímo na GitHubu** (editace v prohlížeči): tlačítko **Edit (✏️)** u souboru → změň → commit.
+2. **Lokálně přes generátor** — uprav datovou tabulku v `kytara-gen.py` (tóniny, hmatová schémata, capo tipy) a přegeneruj:
+   - `python3 kytara-gen.py` → přegeneruje `postupy-vsechny-toniny.html` vedle skriptu
+   - PDF: `chromium --headless --no-sandbox --disable-gpu --no-pdf-header-footer --print-to-pdf=harmonic-prog-guitar-all-keys.pdf file://$PWD/postupy-vsechny-toniny.html`
+   - PNG úvodní strany: `chromium --headless --no-sandbox --disable-gpu --force-device-scale-factor=2 --screenshot=harmonic-prog-guitar.png --window-size=1540,1195 file://$PWD/diagram.html`
+3. Commit / pull request — merge do `main`.
+
+Pozn.: číslo u barré tvaru = pražec, od nějž schéma začíná; ○ = prázdná struna, ✕ = netrhaná.
+
+## Licence
+
+MIT — viz LICENSE.
