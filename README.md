@@ -6,6 +6,8 @@ Doplňková sada **molových tónin** (a, e, b, f♯, c♯, g♯, d♯, b♭, f,
 
 **Kniha** (`harmonic-prog-guitar-book.pdf`, 28 stránek) = obálka s obsahem + 3 stránky hudební teorie (strojnice: tóny a polotóny, stavba akordu · funkce a kruh kvint včetně molových rolí · praxe na hmatníku: čtení schémat, barré, capo, transpozice krok za krokem, molové triky) + obě sady (dur s. 5–16, mol s. 17–28). Čísla stránek na každé straně mimo obálku.
 
+**Anglické vydání** (EN): `harmonic-prog-guitar-book-en.pdf` (28 stránek A4) — totéž v angličtině (obálka + teorie + 24 tónin, terminologie major/minor keys); generátor `kytara-gen-book-en.py` čte CZ knihu a přepisuje textové uzly do EN.
+
 Každá strana (A4) obsahuje:
 - **Kruh kvint** se zvýrazněnou tóninou — I = zelená, V = červená, IV = okr, vi = modrá; šipka = dominantový tah (V→I). Pravidlo: *V je soused doprava, IV doleva, vi ve vnitřním kruhu pod tónikou.*
 - **Diatonické akordy** dané tóniny s hmatovými schématy — u barré je uveden **počáteční pražec**; vii° zvlášť s praktickou náhradou (dominantový septimový akord).
@@ -27,6 +29,9 @@ Každá strana (A4) obsahuje:
 | `kytara-gen.py` | generátor DUR sady — datová tabulka tónin → HTML |
 | `kytara-gen-moll.py` | generátor MOL sady — datová tabulka molů → HTML |
 | `kytara-gen-book.py` | generátor KNIHY — čte obě sady a přidává obálku + teorii |
+| `harmonic-prog-guitar-book-en.html` | EN KNIHA — zdroj (28 stránek; generuje `kytara-gen-book-en.py`) |
+| `harmonic-prog-guitar-book-en.pdf` | hotová EN kniha — jedno PDF (28 stránek A4) |
+| `kytara-gen-book-en.py` | generátor EN knihy — čte CZ knihu, přepisuje texty do EN |
 
 ## Jak upravit
 
