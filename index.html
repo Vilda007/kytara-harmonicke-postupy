@@ -33,13 +33,51 @@
         .root-circle { fill: none; stroke: var(--tonic); stroke-width: 2; }
     </style>
 </head>
-<body>
+<body class="transition-colors duration-300">
     <div id="root"></div>
 
     <script type="text/babel">
         const { useState, useEffect, useMemo } = React;
 
-        // --- Music Theory Constants ---
+        const I18N = {
+            en: {
+                title: "Guitar Chord Progressions",
+                subtitle: "Interactive Harmony Guide",
+                currentKey: "Current Key",
+                diatonicChords: "Diatonic Chords",
+                provenProgressions: "Proven Progressions",
+                // Chord roles
+                "I": "Tonic", "i": "Tonic",
+                "IV": "Subdominant", "iv": "Subdominant",
+                "V": "Dominant", "v": "Dominant", "V7": "Dominant",
+                "vi": "Relative Minor", "VI": "Subdominant",
+                "ii": "Supertonic", "iii": "Mediant", "vii°": "Leading Tone",
+                "II": "Supertonic", "III": "Mediant", "VII": "Leading Tone", "ii°": "Supertonic",
+                // Other
+                easyPath: "Easy path: ",
+                capoNote: "Capo = clamp: shifts easy shapes up by N frets.",
+                funcHint: "Function: "
+            },
+            cs: {
+                title: "Harmonické postupy na kytaru",
+                subtitle: "Interaktivní průvodce harmonií",
+                currentKey: "Aktuální tónina",
+                diatonicChords: "Diatonické akordy",
+                provenProgressions: "Osvědčené postupy",
+                // Chord roles
+                "I": "tónika", "i": "tónika",
+                "IV": "subdominanta", "iv": "subdominanta",
+                "V": "dominanta", "v": "dominanta", "V7": "dominanta",
+                "vi": "rel. mol", "VI": "subdominanta",
+                "ii": "subdom.", "iii": "mezikrok", "vii°": "vedlejší",
+                "II": "subdom.", "III": "mezikrok", "VII": "vedlejší", "ii°": "subdom.",
+                // Other
+                easyPath: "Nejsnazší cesta: ",
+                capoNote: "Capo = strunný pásek: posune snadné tvary o N polotónů nahoru.",
+                funcHint: "Funkce: "
+            }
+        };
+
         const MAJOR_KEYS = ["C", "G", "D", "A", "E", "B", "F♯", "D♭", "A♭", "E♭", "B♭", "F"];
         const MINOR_KEYS = ["a", "e", "b", "f♯", "c♯", "g♯", "d♯", "b♭", "f", "c", "g", "d"];
 
@@ -52,19 +90,16 @@
             'II': 'var(--muted)', 'III': 'var(--vin)', 'VII': 'var(--muted)', 'ii°': 'var(--muted)'
         };
 
-        // --- Components ---
-
-        const ChordDiagram = ({ chord, numeral }) => {
+        const ChordDiagram = ({ chord, numeral, lang }) => {
             if (!chord) return <div className="w-24 h-32 flex items-center justify-center text-xs text-gray-400 border border-dashed border-gray-300 rounded">N/A</div>;
 
             const { fingering, baseFret, name } = chord;
-            const xOffset = 0, yOffset = 0;
             const stringSpacing = 16;
             const fretSpacing = 20;
 
             return (
                 <div className="flex flex-col items-center gap-2">
-                    <svg width="100" height="130" viewBox="0 0 100 130">
+                    <svg width="110" height="140" viewBox="-10 -10 120 150">
                         {/* Fretboard Grid */}
                         {Array.from({length: 6}).map((_, i) => (
                             <line key={`s${i}`} x1={20 + i * stringSpacing} y1={10} x2={20 + i * stringSpacing} y2={90} className="string-line" />
@@ -77,14 +112,14 @@
                         {baseFret === 1 ? (
                             <line x1={20} y1={10} x2={20 + 5 * stringSpacing} y2={10} stroke="var(--fg)" strokeWidth="2.6" />
                         ) : (
-                            <text x={15} y={22} fontSize="9.5" fill="var(--muted)" textAnchor="end">{baseFret}</text>
+                            <text x={12} y={22} fontSize="12" fontWeight="700" fill="var(--fg)" textAnchor="end">{baseFret}</text>
                         )}
 
-                        {/* Muted/Open markers */}
+                        {/* Muted/Open markers - enlarged and bolder */}
                         {fingering.map((f, i) => {
                             const sx = 20 + i * stringSpacing;
-                            if (f === 'x') return <text key={`x${i}`} x={sx} y={8} fontSize="10" fill="#8a8074" textAnchor="middle">✕</text>;
-                            if (f === 'o' || f === 0) return <text key={`o${i}`} x={sx} y={8} fontSize="10" fill="var(--line)" textAnchor="middle">○</text>;
+                            if (f === 'x') return <text key={`x${i}`} x={sx} y={8} fontSize="12" fontWeight="700" fill="#8a8074" textAnchor="middle">✕</text>;
+                            if (f === 'o' || f === 0) return <text key={`o${i}`} x={sx} y={8} fontSize="12" fontWeight="700" fill="var(--line)" textAnchor="middle">○</text>;
                             return null;
                         })}
 
@@ -100,7 +135,7 @@
                             />
                         )}
 
-                        {/* Dots */}
+                        {/* Dots - ensured visibility on highest string */}
                         {fingering.map((f, i) => {
                             if (typeof f !== 'number' || f === 0) return null;
                             const r = f - baseFret;
@@ -122,11 +157,6 @@
                 const th = (Math.PI / 180) * (-90 + 30 * k);
                 return [centerX + r * Math.cos(th), centerY + r * Math.sin(th)];
             };
-
-            const allKeys = [
-                ...MAJOR_KEYS.map((s, i) => ({ symbol: s, type: 'major', pos: i })),
-                ...MINOR_KEYS.map((s, i) => ({ symbol: s, type: 'minor', pos: i }))
-            ];
 
             return (
                 <div className="flex justify-center items-center p-4 bg-white rounded-2xl shadow-sm">
@@ -168,18 +198,20 @@
 
         const App = () => {
             const [data, setData] = useState(null);
+            const [lang, setLang] = useState('en');
             const [activeKey, setActiveKey] = useState({ symbol: 'C', type: 'major', position: 0 });
 
             useEffect(() => {
-                // 1. Parse URL parameters for PDF generation
                 const params = new URLSearchParams(window.location.search);
-                const urlKey = params.get('key');
-                const urlType = params.get('type');
+                const urlLang = params.get('lang') || 'en';
+                setLang(urlLang === 'cs' ? 'cs' : 'en');
 
                 fetch('chords.json')
                     .then(r => r.json())
                     .then(jsonData => {
                         setData(jsonData);
+                        const urlKey = params.get('key');
+                        const urlType = params.get('type');
                         if (urlKey && urlType) {
                             const found = jsonData.keys.find(k => k.symbol === urlKey && k.type === urlType);
                             if (found) {
@@ -195,44 +227,47 @@
 
             if (!data) return <div className="flex items-center justify-center h-screen">Loading harmony...</div>;
 
+            const t = I18N[lang];
             const currentKeyData = data.keys.find(k => k.symbol === activeKey.symbol);
 
             return (
                 <div className="max-w-6xl mx-auto p-8">
-                    <header className="text-center mb-12">
-                        <h1 className="text-4xl font-extrabold mb-2">Guitar <span className="text-amber-600">Chord Progressions</span></h1>
-                        <p className="text-gray-500">Interactive Harmony Guide</p>
+                    <header className="flex flex-col items-center text-center mb-12 gap-4">
+                        <div className="flex gap-2 bg-white p-1 rounded-full shadow-sm border border-gray-200">
+                            <button onClick={() => setLang('en')} className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${lang === 'en' ? 'bg-amber-500 text-white shadow-inner' : 'text-gray-500 hover:text-gray-700'}`}>EN</button>
+                            <button onClick={() => setLang('cs')} className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${lang === 'cs' ? 'bg-amber-500 text-white shadow-inner' : 'text-gray-500 hover:text-gray-700'}`}>CZ</button>
+                        </div>
+                        <h1 className="text-4xl font-extrabold mb-2">{t.title}</h1>
+                        <p className="text-gray-500">{t.subtitle}</p>
                     </header>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                        {/* Left: Circle of Fifths */}
                         <div className="flex flex-col items-center gap-6">
                             <CircleOfFifths activeKey={activeKey} onKeyChange={setActiveKey} />
                             <div className="text-center max-w-md">
-                                <h2 className="text-xl font-bold mb-2">Current Key: {activeKey.symbol} {activeKey.type}</h2>
+                                <h2 className="text-xl font-bold mb-2">{t.currentKey}: {activeKey.symbol} {activeKey.type === 'major' ? (lang === 'en' ? 'Major' : 'dur') : (lang === 'en' ? 'Minor' : 'mol')}</h2>
                                 <p className="text-sm text-gray-500">{currentKeyData?.capoTip || "Select a key on the circle to explore."}</p>
                             </div>
                         </div>
 
-                        {/* Right: Chords & Progressions */}
                         <div className="space-y-8">
                             <section className="bg-white p-6 rounded-2xl shadow-sm">
-                                <h3 className="text-lg font-bold mb-6 border-b pb-2">Diatonic Chords</h3>
+                                <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.diatonicChords}</h3>
                                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
                                     {Object.entries(currentKeyData?.chords || {}).map(([role, chord]) => (
                                         <div key={role} className="flex flex-col items-center">
                                             <div className="px-3 py-1 rounded-full text-xs font-bold mb-2"
                                                  style={{backgroundColor: 'var(--neutral)', color: COLOR_MAP[role] || 'var(--fg)'}}>
-                                                {role}
+                                                {role} {t[role] ? `· ${t[role]}` : ''}
                                             </div>
-                                            <ChordDiagram chord={chord} numeral={role} />
+                                            <ChordDiagram chord={chord} numeral={role} lang={lang} />
                                         </div>
                                     ))}
                                 </div>
                             </section>
 
                             <section className="bg-white p-6 rounded-2xl shadow-sm">
-                                <h3 className="text-lg font-bold mb-6 border-b pb-2">Proven Progressions</h3>
+                                <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.provenProgressions}</h3>
                                 <div className="space-y-6">
                                     {data.progressions.map((prog, i) => (
                                         <div key={i} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
