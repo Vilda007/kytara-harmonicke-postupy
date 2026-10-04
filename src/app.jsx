@@ -206,7 +206,7 @@ const App = () => {
             </header>
 
             <div className="flex flex-col gap-12">
-                <section className="flex flex-col items-center gap-6">
+                <section className="bg-white p-6 rounded-2xl shadow-sm flex flex-col items-center gap-6">
                     <CircleOfFifths activeKey={activeKey} onKeyChange={setActiveKey} />
                     <div className="text-center max-w-md">
                         <h2 className="text-xl font-bold mb-2">{t.currentKey}: {activeKey.symbol} {activeKey.type === 'major' ? (lang === 'en' ? 'Major' : 'dur') : (lang === 'en' ? 'Minor' : 'mol')}</h2>
