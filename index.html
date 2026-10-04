@@ -246,7 +246,7 @@
                             <CircleOfFifths activeKey={activeKey} onKeyChange={setActiveKey} />
                             <div className="text-center max-w-md">
                                 <h2 className="text-xl font-bold mb-2">{t.currentKey}: {activeKey.symbol} {activeKey.type === 'major' ? (lang === 'en' ? 'Major' : 'dur') : (lang === 'en' ? 'Minor' : 'mol')}</h2>
-                                <p className="text-sm text-gray-500">{currentKeyData?.capoTip || "Select a key on the circle to explore."}</p>
+                                <p className="text-sm text-gray-500">{typeof currentKeyData?.capoTip === 'object' ? currentKeyData.capoTip[lang] : currentKeyData?.capoTip || "Select a key on the circle to explore."}</p>
                             </div>
                         </div>
 
@@ -256,7 +256,7 @@
                                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 items-start">
                                     {Object.entries(currentKeyData?.chords || {}).map(([role, chord]) => (
                                         <div key={role} className="flex flex-col items-center">
-                                            <div className="px-3 py-1 rounded-full text-xs font-bold mb-2"
+                                            <div className="px-3 py-1 rounded-full text-xs font-bold mb-2 h-8 flex items-center justify-center text-center"
                                                  style={{backgroundColor: 'var(--neutral)', color: COLOR_MAP[role] || 'var(--fg)'}}>
                                                 {role} {t[role] ? `· ${t[role]}` : ''}
                                             </div>
@@ -284,7 +284,7 @@
                                                     })}
                                                 </div>
                                                 <span className="text-gray-400 text-sm">—</span>
-                                                <span className="text-sm font-medium">{prog.genre}</span>
+                                                <span className="text-sm font-medium">{typeof prog.genre === 'object' ? prog.genre[lang] : prog.genre}</span>
                                             </div>
                                         </div>
                                     ))}
