@@ -230,6 +230,9 @@ const App = () => {
     const handlePlayChord = (chord) => {
         if (!chord) return;
 
+        // Ensure AudioContext is resumed on user interaction
+        audioEngine.init();
+
         // Stop any current progression to avoid overlap
         audioEngine.stopAll();
         setPlaybackState({
@@ -254,6 +257,9 @@ const App = () => {
         if (playbackState.isPlaying) {
             audioEngine.stopAll();
         }
+
+        // Ensure AudioContext is resumed on user interaction
+        audioEngine.init();
 
         setPlaybackState(prev => ({
             ...prev,
