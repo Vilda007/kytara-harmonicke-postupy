@@ -114,8 +114,8 @@ const ChordDiagram = ({ chord, numeral, lang }) => {
 };
 
 const CircleOfFifths = ({ activeKey, onKeyChange }) => {
-    const centerX = 250, centerY = 250;
-    const R_RING = 200, R_CHIP = 170, R_MINOR = 90;
+    const centerX = 300, centerY = 300;
+    const R_RING = 280, R_CHIP = 240, R_MINOR = 130;
 
     const getPos = (k, r) => {
         const th = (Math.PI / 180) * (-90 + 30 * k);
@@ -124,7 +124,7 @@ const CircleOfFifths = ({ activeKey, onKeyChange }) => {
 
     return (
         <div className="flex justify-center items-center p-4 bg-white rounded-2xl shadow-sm">
-            <svg width="500" height="500" viewBox="0 0 500 500">
+            <svg width="600" height="600" viewBox="0 0 600 600">
                 <circle cx={centerX} cy={centerY} r={R_RING} fill="none" stroke="#d7d3c8" strokeWidth="1" />
                 <circle cx={centerX} cy={centerY} r={R_MINOR} fill="none" stroke="#d7d3c8" strokeWidth="1" strokeDasharray="4 4" opacity="0.7" />
 
@@ -133,11 +133,11 @@ const CircleOfFifths = ({ activeKey, onKeyChange }) => {
                     const isActive = activeKey.symbol === s;
                     return (
                         <g key={`maj-${i}`} onClick={() => onKeyChange({symbol: s, type: 'major', position: i})} style={{cursor: 'pointer'}}>
-                            <rect x={x-28} y={y-15} width="56" height="30" rx="15"
+                            <rect x={x-30} y={y-18} width="60" height="36" rx="18"
                                   fill={isActive ? 'var(--tonicbg)' : 'var(--neutral)'}
                                   stroke={isActive ? 'var(--tonic)' : 'var(--line)'}
                                   strokeWidth={isActive ? 2 : 1} />
-                            <text x={x} y={y+5} textAnchor="middle" className="font-bold" fontSize="16" fill="var(--fg)">{s}</text>
+                            <text x={x} y={y+6} textAnchor="middle" className="font-bold" fontSize="18" fill="var(--fg)">{s}</text>
                         </g>
                     );
                 })}
@@ -147,11 +147,11 @@ const CircleOfFifths = ({ activeKey, onKeyChange }) => {
                     const isActive = activeKey.symbol === s;
                     return (
                         <g key={`min-${i}`} onClick={() => onKeyChange({symbol: s, type: 'minor', position: i})} style={{cursor: 'pointer'}}>
-                            <rect x={x-22} y={y-12} width="44" height="24" rx="12"
+                            <rect x={x-24} y={y-14} width="48" height="28" rx="14"
                                   fill={isActive ? 'var(--vinbg)' : '#ecf0f4'}
                                   stroke={isActive ? 'var(--vin)' : 'var(--line)'}
                                   strokeWidth={isActive ? 2 : 1} />
-                            <text x={x} y={y+5} textAnchor="middle" className="font-bold" fontSize="12" fill="var(--fg)">{s}</text>
+                            <text x={x} y={y+6} textAnchor="middle" className="font-bold" fontSize="14" fill="var(--fg)">{s}</text>
                         </g>
                     );
                 })}
