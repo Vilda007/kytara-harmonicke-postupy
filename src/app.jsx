@@ -276,10 +276,7 @@ const App = () => {
             return;
         }
 
-        if (playbackState.isPlaying) {
-            audioEngine.stopAll();
-            if (timerRef.current) { clearTimeout(timerRef.current); timerRef.current = null; }  // kill the previous loop before starting a new one
-        }
+        handleStop();  // kills the previous loop AND oscillators (remote fix, keeps timerRef cleanup)
 
         // Ensure AudioContext is resumed on user interaction
         audioEngine.init();
@@ -301,13 +298,9 @@ const App = () => {
         let currentChordIdx = 0;
 
         const playNextStep = () => {
-            // We check a ref or latest state. Since this is a closure,
-            // we must be careful. For simplicity in this prototype,
-            // we rely on the fact that handleStop clears oscillators.
-
-            // Use a timeout that captures the latest state via a separate check or
-            // simply stop if audioEngine is told to stop.
-
+            // The loop is stopped via timerRef (handleStop clears it) — checking
+            // playbackState.isPlaying here would read a stale closure snapshot
+            // (false at click time) and kill playback on the first step.
             const stepType = pattern[currentStep % pattern.length];
             const chord = currentKeyData.chords[sequence[currentChordIdx]];
             const freqs = audioEngine.getChordFrequencies(chord);
