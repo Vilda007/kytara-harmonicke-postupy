@@ -1,0 +1,24 @@
+{
+  "name": "kytara-harmonicke-postupy",
+  "version": "1.0.0",
+  "description": "**EN (default)** — Harmonic (chord progression) cheat sheets for **12 major keys** and **12 minor keys**, plus a full 28-page book with music theory from zero. Built around the circle of fifths: every page shows the key highlighted on the circle (I = green, V = red, IV = orange, vi = blue; arrow = the V→I dominant move), the diatonic chords with guitar fingering, proven progressions transposed into that key (I–IV–V, pop four-chord, doo-wop, ii–V–I, 12-bar blues), and barre shapes with the starting fret marked.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vilda007/kytara-harmonicke-postupy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Vilda007/kytara-harmonicke-postupy/issues"
+  },
+  "homepage": "https://github.com/Vilda007/kytara-harmonicke-postupy#readme",
+  "dependencies": {
+    "puppeteer": "^25.12.0"
+  }
+}
