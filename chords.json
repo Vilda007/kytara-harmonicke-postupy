@@ -108,7 +108,10 @@
       "symbol": "G",
       "type": "major",
       "position": 1,
-      "capoTip": "capo 2 + tvary F-dur → G, Am, Bm, C, D, Em — všechny snadné.",
+      "capoTip": {
+        "en": "capo 2 + F-major shapes → G, Am, Bm, C, D, Em — all easy.",
+        "cs": "capo 2 + tvary F-dur → G, Am, Bm, C, D, Em — všechny snadné."
+      },
       "chords": {
         "I": {
           "name": "G",
@@ -212,7 +215,10 @@
       "symbol": "D",
       "type": "major",
       "position": 2,
-      "capoTip": "capo 2 + tvary C-dur → D, Em, F♯m, G, A, Bm — snazší tvary.",
+      "capoTip": {
+        "en": "capo 2 + C-major shapes → D, Em, F♯m, G, A, Bm — easier shapes.",
+        "cs": "capo 2 + tvary C-dur → D, Em, F♯m, G, A, Bm — snazší tvary."
+      },
       "chords": {
         "I": {
           "name": "D",
@@ -316,7 +322,10 @@
       "symbol": "A",
       "type": "major",
       "position": 3,
-      "capoTip": "capo 2 + tvary G-dur → A, Bm, C♯m, D, E, F♯m — snazší tvary.",
+      "capoTip": {
+        "en": "capo 2 + G-major shapes → A, Bm, C♯m, D, E, F♯m — easier shapes.",
+        "cs": "capo 2 + tvary G-dur → A, Bm, C♯m, D, E, F♯m — snazší tvary."
+      },
       "chords": {
         "I": {
           "name": "A",
@@ -420,7 +429,10 @@
       "symbol": "E",
       "type": "major",
       "position": 4,
-      "capoTip": "capo 2 + tvary D-dur → E, F♯m, G♯m, A, B, C♯m — méně barré.",
+      "capoTip": {
+        "en": "capo 2 + D-major shapes → E, F♯m, G♯m, A, B, C♯m — fewer barre chords.",
+        "cs": "capo 2 + tvary D-dur → E, F♯m, G♯m, A, B, C♯m — méně barré."
+      },
       "chords": {
         "I": {
           "name": "E",
@@ -524,7 +536,10 @@
       "symbol": "B",
       "type": "major",
       "position": 5,
-      "capoTip": "capo 2 + tvary A-dur → B, C♯m, D♯m, E, F♯, G♯m — snazší tvary.",
+      "capoTip": {
+        "en": "capo 2 + A-major shapes → B, C♯m, D♯m, E, F♯, G♯m — easier shapes.",
+        "cs": "capo 2 + tvary A-dur → B, C♯m, D♯m, E, F♯, G♯m — snazší tvary."
+      },
       "chords": {
         "I": {
           "name": "B",
@@ -628,7 +643,10 @@
       "symbol": "F♯",
       "type": "major",
       "position": 6,
-      "capoTip": "capo 2 + tvary E-dur → F♯, G♯m, A♯m, B, C♯, D♯m — snazší tvary.",
+      "capoTip": {
+        "en": "capo 2 + E-major shapes → F♯, G♯m, A♯m, B, C♯, D♯m — easier shapes.",
+        "cs": "capo 2 + tvary E-dur → F♯, G♯m, A♯m, B, C♯, D♯m — snazší tvary."
+      },
       "chords": {
         "I": {
           "name": "F♯",
@@ -732,7 +750,10 @@
       "symbol": "D♭",
       "type": "major",
       "position": 7,
-      "capoTip": "capo 1 + tvary C-dur → D♭, E♭m, Fm, G♭, A♭, B♭m — snazší tvary.",
+      "capoTip": {
+        "en": "capo 1 + C-major shapes → D♭, E♭m, Fm, G♭, A♭, B♭m — easier shapes.",
+        "cs": "capo 1 + tvary C-dur → D♭, E♭m, Fm, G♭, A♭, B♭m — snazší tvary."
+      },
       "chords": {
         "I": {
           "name": "D♭",
@@ -836,7 +857,10 @@
       "symbol": "A♭",
       "type": "major",
       "position": 8,
-      "capoTip": "capo 1 + tvary G-dur → A♭, B♭m, Cm, D♭, E♭, Fm — snazší tvary.",
+      "capoTip": {
+        "en": "capo 1 + G-major shapes → A♭, B♭m, Cm, D♭, E♭, Fm — easier shapes.",
+        "cs": "capo 1 + tvary G-dur → A♭, B♭m, Cm, D♭, E♭, Fm — snazší tvary."
+      },
       "chords": {
         "I": {
           "name": "A♭",
@@ -940,7 +964,10 @@
       "symbol": "E♭",
       "type": "major",
       "position": 9,
-      "capoTip": "capo 3 + tvary C-dur → E♭, Fm, Gm, A♭, B♭, Cm — snazší tvary.",
+      "capoTip": {
+        "en": "capo 3 + C-major shapes → E♭, Fm, Gm, A♭, B♭, Cm — easier shapes.",
+        "cs": "capo 3 + tvary C-dur → E♭, Fm, Gm, A♭, B♭, Cm — snazší tvary."
+      },
       "chords": {
         "I": {
           "name": "E♭",
@@ -1044,7 +1071,10 @@
       "symbol": "B♭",
       "type": "major",
       "position": 10,
-      "capoTip": "capo 1 + tvary A-dur → B♭, Cm, Dm, E♭, F, Gm — snazší tvary.",
+      "capoTip": {
+        "en": "capo 1 + A-major shapes → B♭, Cm, Dm, E♭, F, Gm — easier shapes.",
+        "cs": "capo 1 + tvary A-dur → B♭, Cm, Dm, E♭, F, Gm — snazší tvary."
+      },
       "chords": {
         "I": {
           "name": "B♭",
@@ -1148,7 +1178,10 @@
       "symbol": "F",
       "type": "major",
       "position": 11,
-      "capoTip": "F/Gm/B♭ barré + Am/C/D otevřené; jinak capo 5 + tvary C-dur → F, Gm, Am, B♭, C, Dm.",
+      "capoTip": {
+        "en": "F/Gm/B♭ barre + Am/C/D open; or capo 5 + C-major shapes → F, Gm, Am, B♭, C, Dm.",
+        "cs": "F/Gm/B♭ barré + Am/C/D otevřené; jinak capo 5 + tvary C-dur → F, Gm, Am, B♭, C, Dm."
+      },
       "chords": {
         "I": {
           "name": "F",
@@ -1345,7 +1378,10 @@
       "symbol": "e",
       "type": "minor",
       "position": 1,
-      "capoTip": "Vše otevřené krom Bm (barré 2) — jinak capo 2 + tvary a-moll (Am→Bm, Dm→Em, C→D, G→A, Em→F♯m, F→G).",
+      "capoTip": {
+        "en": "All open except Bm (barre 2) — or capo 2 + a-minor shapes (Am→Bm, Dm→Em, C→D, G→A, Em→F♯m, F→G).",
+        "cs": "Vše otevřené krom Bm (barré 2) — jinak capo 2 + tvary a-moll (Am→Bm, Dm→Em, C→D, G→A, Em→F♯m, F→G)."
+      },
       "chords": {
         "i": {
           "name": "Em",
@@ -1438,7 +1474,10 @@
       "symbol": "b",
       "type": "minor",
       "position": 2,
-      "capoTip": "capo 2 + tvary a-moll (Am→Bm, Dm→Em, Em→F♯m, F→G, C→D, G→A).",
+      "capoTip": {
+        "en": "capo 2 + a-minor shapes (Am→Bm, Dm→Em, Em→F♯m, F→G, C→D, G→A).",
+        "cs": "capo 2 + tvary a-moll (Am→Bm, Dm→Em, Em→F♯m, F→G, C→D, G→A)."
+      },
       "chords": {
         "i": {
           "name": "Bm",
@@ -1531,7 +1570,10 @@
       "symbol": "f♯",
       "type": "minor",
       "position": 3,
-      "capoTip": "capo 2 + tvary e-moll (Em→F♯m, G→A, A→B, Bm→C♯m, C→D, D→E).",
+      "capoTip": {
+        "en": "capo 2 + e-minor shapes (Em→F♯m, G→A, A→B, Bm→C♯m, C→D, D→E).",
+        "cs": "capo 2 + tvary e-moll (Em→F♯m, G→A, A→B, Bm→C♯m, C→D, D→E)."
+      },
       "chords": {
         "i": {
           "name": "F♯m",
@@ -1624,7 +1666,10 @@
       "symbol": "c♯",
       "type": "minor",
       "position": 4,
-      "capoTip": "capo 4 + tvary a-moll (Am→C♯m, Dm→F♯m, Em→G♯m, F→A, G→B, C→E).",
+      "capoTip": {
+        "en": "capo 4 + a-minor shapes (Am→C♯m, Dm→F♯m, Em→G♯m, F→A, G→B, C→E).",
+        "cs": "capo 4 + tvary a-moll (Am→C♯m, Dm→F♯m, Em→G♯m, F→A, G→B, C→E)."
+      },
       "chords": {
         "i": {
           "name": "C♯m",
@@ -1717,7 +1762,10 @@
       "symbol": "g♯",
       "type": "minor",
       "position": 5,
-      "capoTip": "capo 4 + tvary e-moll (Em→G♯m, G→B, A→C♯, Bm→D♯m, C→E, D→F♯).",
+      "capoTip": {
+        "en": "capo 4 + e-minor shapes (Em→G♯m, G→B, A→C♯, Bm→D♯m, C→E, D→F♯).",
+        "cs": "capo 4 + tvary e-moll (Em→G♯m, G→B, A→C♯, Bm→D♯m, C→E, D→F♯)."
+      },
       "chords": {
         "i": {
           "name": "G♯m",
@@ -1810,7 +1858,10 @@
       "symbol": "d♯",
       "type": "minor",
       "position": 6,
-      "capoTip": "capo 6 + tvary a-moll (Am→D♯m, Dm→G♯m, Em→A♯m, F→B, G→C♯, C→F♯).",
+      "capoTip": {
+        "en": "capo 6 + a-minor shapes (Am→D♯m, Dm→G♯m, Em→A♯m, F→B, G→C♯, C→F♯).",
+        "cs": "capo 6 + tvary a-moll (Am→D♯m, Dm→G♯m, Em→A♯m, F→B, G→C♯, C→F♯)."
+      },
       "chords": {
         "i": {
           "name": "D♯m",
@@ -1903,7 +1954,10 @@
       "symbol": "b♭",
       "type": "minor",
       "position": 7,
-      "capoTip": "capo 1 + tvary a-moll (Am→B♭m, Dm→E♭m, Em→Fm, F→G♭, G→A♭, C→D♭).",
+      "capoTip": {
+        "en": "capo 1 + a-minor shapes (Am→B♭m, Dm→E♭m, Em→Fm, F→G♭, G→A♭, C→D♭).",
+        "cs": "capo 1 + tvary a-moll (Am→B♭m, Dm→E♭m, Em→Fm, F→G♭, G→A♭, C→D♭)."
+      },
       "chords": {
         "i": {
           "name": "B♭m",
@@ -1996,7 +2050,10 @@
       "symbol": "f",
       "type": "minor",
       "position": 8,
-      "capoTip": "capo 1 + tvary e-moll (Em→Fm, G→A♭, A→B♭, Bm→Cm, C→D♭, D→E♭).",
+      "capoTip": {
+        "en": "capo 1 + e-minor shapes (Em→Fm, G→A♭, A→B♭, Bm→Cm, C→D♭, D→E♭).",
+        "cs": "capo 1 + tvary e-moll (Em→Fm, G→A♭, A→B♭, Bm→Cm, C→D♭, D→E♭)."
+      },
       "chords": {
         "i": {
           "name": "Fm",
@@ -2089,7 +2146,10 @@
       "symbol": "c",
       "type": "minor",
       "position": 9,
-      "capoTip": "capo 3 + tvary a-moll (Am→Cm, Dm→Fm, Em→Gm, F→A♭, G→B♭, C→E♭).",
+      "capoTip": {
+        "en": "capo 3 + a-minor shapes (Am→Cm, Dm→Fm, Em→Gm, F→A♭, G→B♭, C→E♭).",
+        "cs": "capo 3 + tvary a-moll (Am→Cm, Dm→Fm, Em→Gm, F→A♭, G→B♭, C→E♭)."
+      },
       "chords": {
         "i": {
           "name": "Cm",
@@ -2182,7 +2242,10 @@
       "symbol": "g",
       "type": "minor",
       "position": 10,
-      "capoTip": "capo 3 + tvary e-moll (Em→Gm, G→B♭, A→C, Bm→Dm, C→E♭, D→F).",
+      "capoTip": {
+        "en": "capo 3 + e-minor shapes (Em→Gm, G→B♭, A→C, Bm→Dm, C→E♭, D→F).",
+        "cs": "capo 3 + tvary e-moll (Em→Gm, G→B♭, A→C, Bm→Dm, C→E♭, D→F)."
+      },
       "chords": {
         "i": {
           "name": "Gm",
@@ -2275,7 +2338,10 @@
       "symbol": "d",
       "type": "minor",
       "position": 11,
-      "capoTip": "Bez capo — Dm/F/G/Am/B♭/C = převážně otevřené tvary; jinak capo 5 + tvary a-moll (Am→Dm).",
+      "capoTip": {
+        "en": "No capo — Dm/F/G/Am/B♭/C = mostly open shapes; or capo 5 + a-minor shapes (Am→Dm).",
+        "cs": "Bez capo — Dm/F/G/Am/B♭/C = převážně otevřené tvary; jinak capo 5 + tvary a-moll (Am→Dm)."
+      },
       "chords": {
         "i": {
           "name": "Dm",
@@ -2372,7 +2438,10 @@
         "IV",
         "V"
       ],
-      "genre": "základ rocku a folku"
+      "genre": {
+        "en": "foundation of rock and folk",
+        "cs": "základ rocku a folku"
+      }
     },
     {
       "sequence": [
@@ -2381,7 +2450,10 @@
         "vi",
         "IV"
       ],
-      "genre": "popová „čtyřka“"
+      "genre": {
+        "en": "pop \"four chords\"",
+        "cs": "popová „čtyřka“"
+      }
     },
     {
       "sequence": [
@@ -2390,7 +2462,10 @@
         "I",
         "V"
       ],
-      "genre": "tutéž čtyřka, ale domov v molu"
+      "genre": {
+        "en": "same four, but home in minor",
+        "cs": "tutéž čtyřka, ale domov v molu"
+      }
     },
     {
       "sequence": [
@@ -2399,7 +2474,10 @@
         "IV",
         "V"
       ],
-      "genre": "doo-wop 50. let"
+      "genre": {
+        "en": "50s doo-wop",
+        "cs": "doo-wop 50. let"
+      }
     },
     {
       "sequence": [
@@ -2407,7 +2485,10 @@
         "V",
         "I"
       ],
-      "genre": "jazzový obrat"
+      "genre": {
+        "en": "jazz turnaround",
+        "cs": "jazzový obrat"
+      }
     }
   ],
   "blues": [
