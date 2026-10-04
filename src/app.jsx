@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
+import { audioEngine } from './audio';
 
 const I18N = {
     en: {
@@ -164,6 +165,13 @@ const App = () => {
     const [data, setData] = useState(null);
     const [lang, setLang] = useState('en');
     const [activeKey, setActiveKey] = useState({ symbol: 'C', type: 'major', position: 0 });
+    const [playbackState, setPlaybackState] = useState({
+        isPlaying: false,
+        isMuted: false,
+        bpmOverride: null,
+        currentChordIndex: -1,
+        currentProgIndex: -1
+    });
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -189,10 +197,105 @@ const App = () => {
             });
     }, []);
 
+    useEffect(() => {
+        if (playbackState.isPlaying) {
+            return () => audioEngine.stopAll();
+        }
+    }, [playbackState.isPlaying]);
+
     if (!data) return <div className="flex items-center justify-center h-screen">Loading harmony...</div>;
 
     const t = I18N[lang];
     const currentKeyData = data.keys.find(k => k.symbol === activeKey.symbol);
+
+    const handleStop = () => {
+        audioEngine.stopAll();
+        setPlaybackState({
+            isPlaying: false,
+            isMuted: false,
+            bpmOverride: null,
+            currentChordIndex: -1,
+            currentProgIndex: -1
+        });
+    };
+
+    const handleToggleMute = () => {
+        setPlaybackState(prev => ({ ...prev, isMuted: !prev.isMuted }));
+    };
+
+    const handleBpmChange = (e) => {
+        setPlaybackState(prev => ({ ...prev, bpmOverride: parseInt(e.target.value, 10) }));
+    };
+
+    const handlePlayProgression = async (progIndex, prog) => {
+        if (playbackState.isPlaying && playbackState.currentProgIndex === progIndex) {
+            handleStop();
+            return;
+        }
+
+        if (playbackState.isPlaying) {
+            audioEngine.stopAll();
+        }
+
+        setPlaybackState(prev => ({
+            ...prev,
+            isPlaying: true,
+            currentChordIndex: 0,
+            currentProgIndex: progIndex
+        }));
+
+        const rhythmKey = prog.rhythm || 'pop';
+        const rhythmData = data.rhythms[rhythmKey] || data.rhythms['pop'];
+        const baseBpm = rhythmData.bpm || 120;
+        const currentBpm = playbackState.bpmOverride || baseBpm;
+        const pattern = rhythmData.pattern || ["D"];
+        const beatDuration = 60 / currentBpm / 2; // 8th notes
+
+        const sequence = prog.sequence;
+        let currentStep = 0;
+        let currentChordIdx = 0;
+
+        const playNextStep = () => {
+            // We check a ref or latest state. Since this is a closure,
+            // we must be careful. For simplicity in this prototype,
+            // we rely on the fact that handleStop clears oscillators.
+
+            // Use a timeout that captures the latest state via a separate check or
+            // simply stop if audioEngine is told to stop.
+
+            const stepType = pattern[currentStep % pattern.length];
+            const chord = currentKeyData.chords[sequence[currentChordIdx]];
+            const freqs = audioEngine.getChordFrequencies(chord);
+
+            // Only play if NOT muted
+            if (!playbackState.isMuted) {
+                if (stepType === 'D') {
+                    audioEngine.playStrum(freqs, 'down', audioEngine.ctx.currentTime);
+                } else if (stepType === 'U') {
+                    audioEngine.playStrum(freqs, 'up', audioEngine.ctx.currentTime);
+                } else if (stepType === 'M') {
+                    audioEngine.playMute(audioEngine.ctx.currentTime);
+                }
+            }
+
+            currentStep++;
+            if (currentStep % 4 === 0) {
+                currentChordIdx++;
+                if (currentChordIdx >= sequence.length) {
+                    currentChordIdx = 0;
+                }
+                setPlaybackState(prev => ({ ...prev, currentChordIndex: currentChordIdx }));
+            }
+
+            // Recalculate duration in case BPM changed mid-playback
+            const activeBpm = playbackState.bpmOverride || baseBpm;
+            const currentDuration = 60 / activeBpm / 2;
+
+            setTimeout(playNextStep, currentDuration * 1000);
+        };
+
+        playNextStep();
+    };
 
     return (
         <div className="max-w-3xl mx-auto p-8 flex flex-col gap-12">
@@ -230,17 +333,53 @@ const App = () => {
                 </section>
 
                 <section className="bg-white p-6 rounded-2xl shadow-sm">
-                    <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.provenProgressions}</h3>
+                    <div className="flex items-center justify-between mb-6 border-b pb-2">
+                        <h3 className="text-lg font-bold">{t.provenProgressions}</h3>
+
+                        {playbackState.isPlaying && (
+                            <div className="flex items-center gap-4 bg-gray-50 p-2 rounded-full px-4 border border-gray-200">
+                                <button
+                                    onClick={handleToggleMute}
+                                    className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${playbackState.isMuted ? 'bg-red-100 text-red-600' : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-100'}`}
+                                >
+                                    {playbackState.isMuted ? (lang === 'en' ? 'Unmute' : 'Zapnout zvuk') : (lang === 'en' ? 'Mute' : 'Ztlumit')}
+                                </button>
+                                <button
+                                    onClick={handleStop}
+                                    className="px-3 py-1 rounded-full text-xs font-bold bg-gray-800 text-white hover:bg-black transition-all"
+                                >
+                                    {lang === 'en' ? 'Stop' : 'Stop'}
+                                </button>
+                                <div className="flex items-center gap-2 ml-2 border-l pl-4">
+                                    <span className="text-[10px] font-bold text-gray-400 uppercase">BPM</span>
+                                    <input
+                                        type="range"
+                                        min="40"
+                                        max="220"
+                                        value={playbackState.bpmOverride || 120}
+                                        onChange={handleBpmChange}
+                                        className="w-24 h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                                    />
+                                    <span className="text-xs font-mono font-bold text-gray-600 w-8">{playbackState.bpmOverride || 120}</span>
+                                </div>
+                            </div>
+                        )}
+                    </div>
                     <div className="space-y-6">
                         {(activeKey.type === 'minor' ? (data.minorProgressions || data.progressions) : data.progressions).map((prog, i) => (
-                            <div key={i} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                            <div
+                                key={i}
+                                onClick={() => handlePlayProgression(i, prog)}
+                                className={`flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${playbackState.currentProgIndex === i ? 'bg-amber-50 ring-1 ring-amber-200' : 'hover:bg-gray-50'}`}
+                            >
                                 <div className="flex items-center gap-3">
                                     <div className="flex gap-2">
                                         {prog.sequence.map((role, idx) => {
                                             const chord = currentKeyData?.chords[role];
+                                            const isActive = playbackState.currentProgIndex === i && playbackState.currentChordIndex === idx;
                                             return (
-                                                <span key={idx} className="px-2 py-1 rounded bg-gray-100 font-bold text-sm"
-                                                      style={{color: COLOR_MAP[role] || 'var(--fg)'}}>
+                                                <span key={idx} className={`px-2 py-1 rounded font-bold text-sm transition-all ${isActive ? 'bg-amber-400 text-white scale-110 shadow-sm' : 'bg-gray-100'}`}
+                                                      style={{color: isActive ? 'white' : (COLOR_MAP[role] || 'var(--fg)')}}>
                                                     {chord ? chord.name : role}
                                                 </span>
                                             );
@@ -249,6 +388,11 @@ const App = () => {
                                     <span className="text-gray-400 text-sm">—</span>
                                     <span className="text-sm font-medium">{typeof prog.genre === 'object' ? prog.genre[lang] : prog.genre}</span>
                                 </div>
+                                {playbackState.currentProgIndex === i && (
+                                    <div className="text-amber-600 animate-pulse text-xs font-bold">
+                                        {lang === 'en' ? 'Playing...' : 'Hrají...'}
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>
