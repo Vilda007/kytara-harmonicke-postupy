@@ -13,8 +13,10 @@ class AudioEngine {
         if (!this.ctx) {
             this.ctx = new (window.AudioContext || window.webkitAudioContext)();
         }
+
+        // Prohlížeče často pozastaví AudioContext. Musíme ho resume() při interakci uživatele.
         if (this.ctx.state === 'suspended') {
-            this.ctx.resume();
+            this.ctx.resume().catch(err => console.error("AudioContext resume failed:", err));
         }
     }
 
