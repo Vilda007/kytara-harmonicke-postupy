@@ -4,7 +4,9 @@
 
 ### Downloads
 - **Book EN** (default): [`harmonic-prog-guitar-book-en.pdf`](harmonic-prog-guitar-book-en.pdf) — 28 pages A4: cover + 3 pages of theory (semitones, chord building; function & circle of fifths incl. minor roles; practice: reading diagrams, barre, capo, transposition) + all 24 keys.
-- Single-page cheat sheets: 12 major keys [`harmonic-prog-guitar-all-keys.pdf`](harmonic-prog-guitar-all-keys.pdf) · 12 minor keys [`harmonic-prog-guitar-all-minor-keys.pdf`](harmonic-prog-guitar-all-minor-keys.pdf)
+- Standalone sheets EN: 12 major keys [`harmonic-prog-guitar-all-keys-en.pdf`](harmonic-prog-guitar-all-keys-en.pdf) ([HTML](postupy-vsechny-toniny-en.html)) · 12 minor keys [`harmonic-prog-guitar-all-minor-keys-en.pdf`](harmonic-prog-guitar-all-minor-keys-en.pdf) ([HTML](postupy-vsechny-molove-toniny-en.html))
+- Live page: <https://vilda007.github.io/kytara-harmonicke-postupy/>
+- **Improvements & fixes welcome** — open an issue or PR: <https://github.com/Vilda007/kytara-harmonicke-postupy>
 - Poster & preview: [`harmonic-prog-guitar.png`](harmonic-prog-guitar.png) · `diagram.html` (single-page C major poster)
 
 ### How it works
@@ -27,11 +29,15 @@ Každá strana: kruh kvint se zvýrazněnou tóninou (šipka = dominantový tah 
 | --- | --- |
 | `harmonic-prog-guitar-book-en.pdf` | **kniha EN — výchozí** (28 str., A4) |
 | `harmonic-prog-guitar-book.pdf` | kniha CZ (28 str., A4) |
-| `harmonic-prog-guitar-all-keys.pdf` | 12 dur tónin (A4) |
-| `harmonic-prog-guitar-all-minor-keys.pdf` | 12 molových tónin (A4) |
+| `harmonic-prog-guitar-all-keys-en.pdf` / `-all-keys.pdf` | 12 dur tónin EN / CZ (A4) |
+| `harmonic-prog-guitar-all-minor-keys-en.pdf` / `-all-minor-keys.pdf` | 12 molových tónin EN / CZ (A4) |
+| `postupy-vsechny-toniny.html` (+ `-en`) | HTML zdroj DUR (CZ / EN) |
+| `postupy-vsechny-molove-toniny.html` (+ `-en`) | HTML zdroj MOL (CZ / EN) |
 | `harmonic-prog-guitar.png` | preview C-dur |
 | `kytara-gen.py` / `kytara-gen-moll.py` | generátor DUR / MOL sady |
 | `kytara-gen-book.py` / `kytara-gen-book-en.py` | generátor knihy CZ / EN |
+
+**Chyby & vylepšení** — otevři issue nebo pošli PR: <https://github.com/Vilda007/kytara-harmonicke-postupy>
 
 License: see `LICENSE`. Made by Klepeto 🦞 (agent) for Vilém Kužel.
 
