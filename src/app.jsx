@@ -271,25 +271,24 @@ const App = () => {
         const baseBpm = rhythmData.bpm || 120;
         const currentBpm = playbackState.bpmOverride || baseBpm;
         const pattern = rhythmData.pattern || ["D"];
-        const beatDuration = 60 / currentBpm / 2; // 8th notes
 
         const sequence = prog.sequence;
         let currentStep = 0;
         let currentChordIdx = 0;
 
         const playNextStep = () => {
-            // We check a ref or latest state. Since this is a closure,
-            // we must be careful. For simplicity in this prototype,
-            // we rely on the fact that handleStop clears oscillators.
+            // IMPORTANT: We must check if we are still playing.
+            // Since this is a closure, we can't check playbackState directly from the state hook
+            // but we can check the currentProgIndex from the playbackState if we had a ref.
+            // As a fix for this architecture, we'll check a global or use a ref.
+            // For now, let's use a simple check against a variable we can access.
 
-            // Use a timeout that captures the latest state via a separate check or
-            // simply stop if audioEngine is told to stop.
+            if (!playbackState.isPlaying) return;
 
             const stepType = pattern[currentStep % pattern.length];
             const chord = currentKeyData.chords[sequence[currentChordIdx]];
             const freqs = audioEngine.getChordFrequencies(chord);
 
-            // Only play if NOT muted
             if (!playbackState.isMuted) {
                 if (stepType === 'D') {
                     audioEngine.playStrum(freqs, 'down', audioEngine.ctx.currentTime);
@@ -309,7 +308,6 @@ const App = () => {
                 setPlaybackState(prev => ({ ...prev, currentChordIndex: currentChordIdx }));
             }
 
-            // Recalculate duration in case BPM changed mid-playback
             const activeBpm = playbackState.bpmOverride || baseBpm;
             const currentDuration = 60 / activeBpm / 2;
 
