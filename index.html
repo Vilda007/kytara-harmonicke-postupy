@@ -7,9 +7,36 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', { analytics_storage: 'denied' });
   gtag('js', new Date());
 
   gtag('config', 'G-TF5EBMGRYY');
+</script>
+<!-- Cookie consent (EU) -->
+<style>
+  #cookieConsent{position:fixed;bottom:0;left:0;right:0;background:var(--panel,#12242f);color:var(--ink,#e8f1f4);padding:14px 20px;display:none;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;z-index:9999;box-shadow:0 -4px 18px rgba(0,0,0,.4);font-size:.9rem}
+  #cookieConsent button{background:var(--amber,#e8a33d);color:#1c1206;border:0;border-radius:8px;padding:8px 18px;font-weight:600;cursor:pointer}
+  #cookieConsent button.ghost{background:transparent;border:1px solid var(--teal,#3ec8c2);color:var(--teal,#3ec8c2)}
+</style>
+<div id="cookieConsent" role="dialog" aria-label="Cookie consent">
+  <span>Tento web používá cookies (Google Analytics) pro anonymní statistiky. — This site uses cookies (Google Analytics) for anonymous stats.</span>
+  <button id="ckOk">Přijmout / Accept</button>
+  <button id="ckNo" class="ghost">Odmítnout / Deny</button>
+</div>
+<script>
+  (function(){
+    var ok = null;
+    try { ok = localStorage.getItem('cookieConsent'); } catch (e) {}
+    if (ok === null) document.getElementById('cookieConsent').style.display = 'flex';
+    if (ok === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' });
+    function set(v) {
+      try { localStorage.setItem('cookieConsent', v); } catch (e) {}
+      document.getElementById('cookieConsent').style.display = 'none';
+      gtag('consent', 'update', { analytics_storage: v });
+    }
+    document.getElementById('ckOk').addEventListener('click', function(){ set('granted'); });
+    document.getElementById('ckNo').addEventListener('click', function(){ set('denied'); });
+  })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guitar Chord Progression Cheat-Sheets — Harmonické postupy na kytaru</title>
