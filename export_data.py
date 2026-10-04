@@ -10,6 +10,23 @@ def S(*s, base=1): return (s, base)
 # we'll extract the specific variables manually or by executing the script
 # in a controlled environment.
 
+# Minor-key progressions: the generators only define ROMROWS for major
+# keys, so the minor analogues live here. Roles follow the natural minor
+# (i ii° III iv v VI VII); V7 is the harmonic-minor dominant.
+MINOR_PROGRESSIONS = [
+    {"sequence": ["i", "iv", "v"],
+     "genre": {"en": "rock and folk foundation in minor", "cs": "základ rocku a folku v mollu"}},
+    {"sequence": ["i", "VI", "III", "VII"],
+     "genre": {"en": "pop \"four chords\"", "cs": "popové „čtyři akordy“"}},
+    {"sequence": ["i", "VII", "VI", "V7"],
+     "genre": {"en": "Andalusian cadence (stepwise descent)", "cs": "andaluská kadence (sestupný postup)"}},
+    {"sequence": ["i", "VI", "iv", "V7"],
+     "genre": {"en": "50s doo-wop, minor flavour", "cs": "doo-wop 50. let v mollu"}},
+    {"sequence": ["ii°", "V7", "i"],
+     "genre": {"en": "jazz turnaround in minor", "cs": "jazzový obrat v mollu"}},
+]
+
+
 def extract_data():
     # Temporary namespace to run generators
     ns = {'S': S, 'math': __import__('math'), 'os': os, '__file__': 'temp.py'}
@@ -103,6 +120,14 @@ def extract_data():
     # Blues (BLUEST)
     # BLUEST = [0, 0, 0, 0, 3, 3, 0, 0, 4, 3, 0, 4]
     data["blues"] = ns['BLUEST']
+
+    # Minor-key progressions (see MINOR_PROGRESSIONS above)
+    data["minorProgressions"] = MINOR_PROGRESSIONS
+
+    # The generators have no diminished shapes, so fill them in here — keeps
+    # a re-export from wiping the ii°/vii° diagrams.
+    from fix_missing_chords import apply_dim_fixes
+    apply_dim_fixes(data)
 
     return data
 

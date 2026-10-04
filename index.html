@@ -269,7 +269,7 @@
                             <section className="bg-white p-6 rounded-2xl shadow-sm">
                                 <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.provenProgressions}</h3>
                                 <div className="space-y-6">
-                                    {data.progressions.map((prog, i) => (
+                                    {(activeKey.type === 'minor' ? (data.minorProgressions || data.progressions) : data.progressions).map((prog, i) => (
                                         <div key={i} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
                                             <div className="flex items-center gap-3">
                                                 <div className="flex gap-2">

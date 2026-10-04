@@ -45,13 +45,12 @@ def dim_name(root_pc):
     return SHARP[root_pc % 12] + "dim"
 
 
-if __name__ == "__main__":
-    with open("chords.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
+# F♯ major / d♯ minor spell their diminished degree as E♯°, not F°
+ENHARMONIC = {("F♯", "major"): "E♯dim", ("d♯", "minor"): "E♯dim"}
 
-    # F♯ major / d♯ minor spell their diminished degree as E♯°, not F°
-    ENHARMONIC = {("F♯", "major"): "E♯dim", ("d♯", "minor"): "E♯dim"}
 
+def apply_dim_fixes(data):
+    """Fill in the ii°/vii° entry of every key in a chords.json data dict."""
     fixed = 0
     for key in data["keys"]:
         chords = key["chords"]
@@ -67,6 +66,14 @@ if __name__ == "__main__":
         fingering, base = DIM[name]
         chords[role] = {"name": name, "fingering": fingering, "baseFret": base}
         fixed += 1
+    return fixed
+
+
+if __name__ == "__main__":
+    with open("chords.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    fixed = apply_dim_fixes(data)
 
     with open("chords.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)

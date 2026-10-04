@@ -2672,5 +2672,65 @@
       "V",
       4
     ]
+  ],
+  "minorProgressions": [
+    {
+      "sequence": [
+        "i",
+        "iv",
+        "v"
+      ],
+      "genre": {
+        "en": "rock and folk foundation in minor",
+        "cs": "základ rocku a folku v mollu"
+      }
+    },
+    {
+      "sequence": [
+        "i",
+        "VI",
+        "III",
+        "VII"
+      ],
+      "genre": {
+        "en": "pop \"four chords\"",
+        "cs": "popové „čtyři akordy“"
+      }
+    },
+    {
+      "sequence": [
+        "i",
+        "VII",
+        "VI",
+        "V7"
+      ],
+      "genre": {
+        "en": "Andalusian cadence (stepwise descent)",
+        "cs": "andaluská kadence (sestupný postup)"
+      }
+    },
+    {
+      "sequence": [
+        "i",
+        "VI",
+        "iv",
+        "V7"
+      ],
+      "genre": {
+        "en": "50s doo-wop, minor flavour",
+        "cs": "doo-wop 50. let v mollu"
+      }
+    },
+    {
+      "sequence": [
+        "ii°",
+        "V7",
+        "i"
+      ],
+      "genre": {
+        "en": "jazz turnaround in minor",
+        "cs": "jazzový obrat v mollu"
+      }
+    }
   ]
 }
