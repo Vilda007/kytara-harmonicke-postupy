@@ -14,6 +14,14 @@ Each page: circle of fifths with the key highlighted → rule of thumb *V is one
 
 Everything is **generated** — the Python generators hold the data tables and emit the HTML; PDFs are rendered headlessly. Edit a table, rerun, done.
 
+### Interactive web app
+The live page is a React app. Source lives in `src/app.jsx`; the built artifacts (`app.js`, `app.css`) are committed so GitHub Pages needs no CI:
+
+```bash
+npm install
+npm run build   # esbuild bundle + Tailwind CSS -> app.js, app.css
+```
+
 ---
 
 ## Česky
@@ -36,6 +44,7 @@ Každá strana: kruh kvint se zvýrazněnou tóninou (šipka = dominantový tah 
 | `harmonic-prog-guitar.png` | preview C-dur |
 | `kytara-gen.py` / `kytara-gen-moll.py` | generátor DUR / MOL sady |
 | `kytara-gen-book.py` / `kytara-gen-book-en.py` | generátor knihy CZ / EN |
+| `src/app.jsx` → `app.js` + `app.css` | interaktivní web (React, build: `npm install && npm run build`) |
 
 **Chyby & vylepšení** — otevři issue nebo pošli PR: <https://github.com/Vilda007/kytara-harmonicke-postupy>
 
