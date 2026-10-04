@@ -246,7 +246,7 @@
                             <CircleOfFifths activeKey={activeKey} onKeyChange={setActiveKey} />
                             <div className="text-center max-w-md">
                                 <h2 className="text-xl font-bold mb-2">{t.currentKey}: {activeKey.symbol} {activeKey.type === 'major' ? (lang === 'en' ? 'Major' : 'dur') : (lang === 'en' ? 'Minor' : 'mol')}</h2>
-                                <p className="text-sm text-gray-500">{typeof currentKeyData?.capoTip === 'object' ? currentKeyData.capoTip[lang] : currentKeyData?.capoTip || "Select a key on the circle to explore."}</p>
+                                <p className="text-sm text-gray-500">{currentKeyData?.capoTip && typeof currentKeyData.capoTip === 'object' ? currentKeyData.capoTip[lang] : (currentKeyData?.capoTip || "Select a key on the circle to explore.")}</p>
                             </div>
                         </div>
 
