@@ -151,7 +151,7 @@ def theory1():
                 p.append(txt(x+9, y-24, '3', 9.5, 400, 'var(--muted)'))
         p.append(txt(x + 44, 822, name, 16, 600))
         p.append(txt(x + 44, 842, desc, 10.5, 400, 'var(--muted)'))
-    p.append(txt(92, 1000, 'Septima = přidej další tercií (C7 = C·E·G·B♭) — na kytře běžné v blues (C7). Název akordu = jeho nejnižší tón (tonika triády).', 11.5, 400, 'var(--muted)'))
+    p.append(txt(92, 1000, 'Septima = přidej další tercii (C7 = C·E·G·B♭) — na kytře běžné v blues (C7). Název akordu = jeho nejnižší tón (tonika triády).', 11.5, 400, 'var(--muted)'))
     p.append('</svg></div>')
     return ''.join(p)
 
