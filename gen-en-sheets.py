@@ -20,6 +20,14 @@ import io, os, re, subprocess, sys
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 BASE = os.path.dirname(os.path.abspath(__file__))
 
+# Segments the CZ generators changed after the committed EN sheets were made.
+# Keep CZ -> EN in sync here instead of regenerating the twin map from stale
+# commits (see skill kytara-harmonicke-web).
+EXTRA = {
+    'Capo (kapodastr): posune tvary snadné tóniny':
+        'Capo (kapodastr): it shifts the easy-key shapes',
+}
+
 TAG = re.compile(r'<[^>]+>')
 DIAC = re.compile(r'[áčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]')
 
@@ -42,6 +50,7 @@ def translate(fn):
     cz_path = os.path.join(BASE, fn)
     en_path = cz_path.replace('.html', '-en.html')
     mp = build_map(git_show(fn), git_show(fn.replace('.html', '-en.html')))
+    mp.update(EXTRA)
     out = open(cz_path, encoding='utf-8').read()
     applied = 0
     for cz_seg in sorted(mp, key=len, reverse=True):

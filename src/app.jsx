@@ -14,11 +14,11 @@ const I18N = {
         "IV": "Subdominant", "iv": "Subdominant",
         "V": "Dominant", "v": "Dominant", "V7": "Dominant",
         "vi": "Relative Minor", "VI": "Subdominant",
-        "ii": "Supertonic", "iii": "Mediant", "vii°": "Leading Tone",
-        "II": "Supertonic", "III": "Mediant", "VII": "Leading Tone", "ii°": "Supertonic",
+        "ii": "Supertonic", "iii": "Mediant", "vii°": "Leading tone",
+        "II": "Supertonic", "III": "Relative major", "VII": "Subtonic", "ii°": "Supertonic",
         // Other
         easyPath: "Easy path: ",
-        capoNote: "Capo = clamp: shifts easy shapes up by N frets.",
+        capoNote: "Capo (kapodastr): shifts the easy shapes up by N semitones.",
         funcHint: "Function: ",
         downloads: "Downloads",
         htmlSource: "HTML source",
@@ -37,11 +37,11 @@ const I18N = {
         "IV": "subdominanta", "iv": "subdominanta",
         "V": "dominanta", "v": "dominanta", "V7": "dominanta",
         "vi": "rel. mol", "VI": "subdominanta",
-        "ii": "subdom.", "iii": "mezikrok", "vii°": "vedlejší",
-        "II": "subdom.", "III": "mezikrok", "VII": "vedlejší", "ii°": "subdom.",
+        "ii": "subdom.", "iii": "mezikrok", "vii°": "vedoucí tón",
+        "II": "subdom.", "III": "relativní dur", "VII": "subtonika", "ii°": "subdom.",
         // Other
         easyPath: "Nejsnazší cesta: ",
-        capoNote: "Capo = strunný pásek: posune snadné tvary o N polotónů nahoru.",
+        capoNote: "Capo (kapodastr): posune snadné tvary o N polotónů nahoru.",
         funcHint: "Funkce: ",
         downloads: "Ke stažení",
         htmlSource: "HTML zdroj",
@@ -98,17 +98,26 @@ const ChordDiagram = ({ chord, numeral, lang }) => {
                     return null;
                 })}
 
-                {/* Barre highlight */}
-                {frets.filter(f => f === baseFret && typeof f === 'number').length >= 2 && (
-                    <rect
-                        x={frets[0] === baseFret ? 19 : 33}
-                        y={13}
-                        width={frets[0] === baseFret ? 82 : 68}
-                        height="14"
-                        rx="7"
-                        className="barre-rect"
-                    />
-                )}
+                {/* Barre highlight — span computed from the real string indices
+                    (fixes the dim-shape lie: F♯dim [2,3,4,2,x,x] covered nothing
+                    or a wrong range; only true barré across pressed strings) */}
+                {(() => {
+                    const barreIdx = frets
+                        .map((f, i) => (f === baseFret && typeof f === 'number') ? i : -1)
+                        .filter(i => i >= 0);
+                    if (barreIdx.length < 2) return null;
+                    const i0 = Math.min(...barreIdx), i1 = Math.max(...barreIdx);
+                    return (
+                        <rect
+                            x={i0 * stringSpacing + 19}
+                            y={13}
+                            width={(i1 - i0) * stringSpacing + 2}
+                            height="14"
+                            rx="7"
+                            className="barre-rect"
+                        />
+                    );
+                })()}
 
                 {/* Dots - ensured visibility on highest string */}
                 {frets.map((f, i) => {
@@ -242,11 +251,17 @@ const App = () => {
     };
 
     const handleToggleMute = () => {
-        setPlaybackState(prev => ({ ...prev, isMuted: !prev.isMuted }));
+        setPlaybackState(prev => {
+            const next = !prev.isMuted;
+            mutedRef.current = next;  // live mirror for the playing loop (closure over state is stale)
+            return { ...prev, isMuted: next };
+        });
     };
 
     const handleBpmChange = (e) => {
-        setPlaybackState(prev => ({ ...prev, bpmOverride: parseInt(e.target.value, 10) }));
+        const v = parseInt(e.target.value, 10);
+        bpmRef.current = v;  // live mirror for the playing loop
+        setPlaybackState(prev => ({ ...prev, bpmOverride: v }));
     };
 
     const handlePlayChord = (chord) => {
@@ -255,19 +270,13 @@ const App = () => {
         // Ensure AudioContext is resumed on user interaction
         audioEngine.init();
 
-        // Stop any current progression to avoid overlap
-        audioEngine.stopAll();
-        setPlaybackState({
-            isPlaying: false,
-            isMuted: false,
-            bpmOverride: null,
-            currentChordIndex: -1,
-            currentProgIndex: -1
-        });
+        // Stop any playing loop: without clearing timerRef the progression's
+        // pending setTimeout would keep re-scheduling over the single chord.
+        handleStop();
 
         const freqs = audioEngine.getChordFrequencies(chord);
         // Play as a standard downstrum for single chord clicks
-        audioEngine.playStrum(freqs, 'down', audioEngine.ctx.currentTime);
+        if (freqs) audioEngine.playStrum(freqs, 'down', audioEngine.ctx.currentTime);
     };
 
     const handlePlayProgression = async (progIndex, prog) => {
@@ -317,7 +326,10 @@ const App = () => {
             }
 
             currentStep++;
-            if (currentStep % 4 === 0) {
+            // Advance chords per rhythm-cell, not per fixed 4 steps — all rhythm
+            // patterns are 8 eighth-note cells, so a chord change every 4
+            // would race changes at double speed (H1).
+            if (currentStep % pattern.length === 0) {
                 currentChordIdx++;
                 if (currentChordIdx >= sequence.length) {
                     currentChordIdx = 0;

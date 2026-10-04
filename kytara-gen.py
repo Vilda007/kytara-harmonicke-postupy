@@ -280,7 +280,7 @@ def page(sym, chords, tip, ki, capo_note, is_first):
             while sum(len(w)+1 for w in l2) < 30 and l1: l2.insert(0, l1.pop())
             parts.append(f'<text x="{xcol}" y="948" font-size="10.5" fill="var(--fg)">{" ".join(l1)}</text>')
             parts.append(f'<text x="{xcol}" y="963" font-size="10.5" fill="var(--fg)">{" ".join(l2)}</text>')
-        parts.append(f'<text x="{xcol}" y="984" font-size="10.5" fill="var(--muted)">Capo = strunný pásek: posune tvary snadné tóniny</text>')
+        parts.append(f'<text x="{xcol}" y="984" font-size="10.5" fill="var(--muted)">Capo (kapodastr): posune tvary snadné tóniny</text>')
         parts.append(f'<text x="{xcol}" y="999" font-size="10.5" fill="var(--muted)">o N pražců nahoru — vznikne tónina této stránky.</text>')
     parts.append(f'<text x="{xcol}" y="1014" font-size="10.5" fill="var(--muted)">Funkce: <tspan fill="var(--tonic)" font-weight="700">I tónika</tspan> · <tspan fill="var(--sub)" font-weight="700">IV subdominanta</tspan> · <tspan fill="var(--dom)" font-weight="700">V dominanta</tspan> · <tspan fill="var(--vin)" font-weight="700">vi rel. mol</tspan></text>')
     parts.append(f'<text x="{xcol}" y="1029" font-size="10.5" fill="var(--muted)">Vztahy platí v každé dur tónině — mění se tóny, ne role akordů.</text>')

@@ -255,7 +255,7 @@ def theory3():
         p.append(txt(cx+35, cy+76, t, 12, 600, 'var(--fg)', 'middle', True))
         p.append(txt(cx+86, cy+76, e1, 8.5, 400, 'var(--muted)', 'start'))
         p.append(txt(cx+86, cy+92, e2, 8.5, 400, 'var(--muted)', 'start'))
-    p.append(txt(806, 447, 'CAPO = strunný pásek: zkrátí všechny struny na pražci N → tvary snadné tóniny hrají o N polotónů výš.', 12, 400, 'var(--fg)', 'start', True))
+    p.append(txt(806, 447, 'CAPO (kapodastr): zkrátí všechny struny na pražci N → tvary snadné tóniny hrají o N polotónů výš.', 12, 400, 'var(--fg)', 'start', True))
     p.append(txt(806, 466, 'Snadné dur tvary: C · G · D · A · E — snadné mol tvary: a-moll · e-moll. Vše ostatní = tytéž tvary + capo.', 12, 400, 'var(--muted)'))
     p.append(txt(806, 484, 'Výběr: nejbližší snadná tónina = menší počet pražců barré (např. b♭-moll: capo 1 + tvary a-moll).', 12, 400, 'var(--muted)'))
     # P3: transpozice krok za krokem

@@ -101,21 +101,30 @@ class AudioEngine {
     }
 
     playNote(freq, time) {
+        this.init();
+        if (this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+        const now = Math.max(time || 0, this.ctx.currentTime);
+
         const osc = this.ctx.createOscillator();
         const gain = this.ctx.createGain();
 
         osc.type = 'triangle';
-        osc.frequency.setValueAtTime(freq, time);
+        osc.frequency.setValueAtTime(freq, now);
 
-        gain.gain.setValueAtTime(0, time);
-        gain.gain.linearRampToValueAtTime(0.1, time + 0.01);
-        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.8);
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.1, now + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
 
         osc.connect(gain);
         gain.connect(this.ctx.destination);
 
-        osc.start(time);
-        osc.stop(time + 0.9);
+        osc.onended = () => {
+            const i = this.activeOscillators.indexOf(osc);
+            if (i !== -1) this.activeOscillators.splice(i, 1);
+        };
+
+        osc.start(now);
+        osc.stop(now + 0.9);
 
         this.activeOscillators.push(osc);
     }

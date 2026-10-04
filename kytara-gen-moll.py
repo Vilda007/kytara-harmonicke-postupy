@@ -15,13 +15,13 @@ M = [
  ("a", [("Am", S('x',0,2,2,1,0)), ("Bdim", None), ("C", S('x',3,2,0,1,0)), ("Dm", S('x','x',0,2,3,1)),
         ("Em", S(0,2,2,0,0,0)), ("F", S(1,3,3,2,1,1)), ("G", S(3,2,0,0,0,3))],
   "E7", "020100", None),
- ("e", [("Em", S(0,2,2,0,0,0)), ("F♯dim", None), ("G", S(3,2,0,0,0,3)), ("A", S('x',0,2,2,2,0)),
+ ("e", [("Em", S(0,2,2,0,0,0)), ("F♯dim", None), ("G", S(3,2,0,0,0,3)), ("Am", S('x',0,2,2,1,0)),
         ("Bm", S('x',2,4,4,3,2, base=2)), ("C", S('x',3,2,0,1,0)), ("D", S('x','x',0,2,3,2))],
   "B7", "x21202", "Vše otevřené krom Bm (barré 2) — jinak capo 2 + tvary a-moll (Am→Bm, Dm→Em, C→D, G→A, Em→F♯m, F→G)."),
  ("b", [("Bm", S('x',2,4,4,3,2, base=2)), ("C♯dim", None), ("D", S('x','x',0,2,3,2)), ("Em", S(0,2,2,0,0,0)),
         ("F♯m", S(2,4,4,2,2,2, base=2)), ("G", S(3,2,0,0,0,3)), ("A", S('x',0,2,2,2,0))],
   "F♯7", "242322", "capo 2 + tvary a-moll (Am→Bm, Dm→Em, Em→F♯m, F→G, C→D, G→A)."),
- ("f♯", [("F♯m", S(2,4,4,2,2,2, base=2)), ("G♯dim", None), ("A", S('x',0,2,2,2,0)), ("B", S('x',2,4,4,4,2, base=2)),
+ ("f♯", [("F♯m", S(2,4,4,2,2,2, base=2)), ("G♯dim", None), ("A", S('x',0,2,2,2,0)), ("Bm", S('x',2,4,4,3,2, base=2)),
         ("C♯m", S('x',4,6,6,5,4, base=4)), ("D", S('x','x',0,2,3,2)), ("E", S(0,2,2,1,0,0))],
   "C♯7", "x46464", "capo 2 + tvary e-moll (Em→F♯m, G→A, A→B, Bm→C♯m, C→D, D→E)."),
  ("c♯", [("C♯m", S('x',4,6,6,5,4, base=4)), ("D♯dim", None), ("E", S(0,2,2,1,0,0)), ("F♯m", S(2,4,4,2,2,2, base=2)),
@@ -42,10 +42,10 @@ M = [
  ("c", [("Cm", S('x',3,5,5,4,3, base=3)), ("Ddim", None), ("E♭", S('x',6,8,8,8,6, base=6)), ("Fm", S(1,3,3,1,1,1)),
         ("Gm", S(3,5,5,3,3,3, base=3)), ("A♭", S(4,6,6,5,4,4, base=4)), ("B♭", S('x',1,3,3,3,1))],
   "G7", "320001", "capo 3 + tvary a-moll (Am→Cm, Dm→Fm, Em→Gm, F→A♭, G→B♭, C→E♭)."),
- ("g", [("Gm", S(3,5,5,3,3,3, base=3)), ("Adim", None), ("B♭", S('x',1,3,3,3,1)), ("C", S('x',3,2,0,1,0)),
+ ("g", [("Gm", S(3,5,5,3,3,3, base=3)), ("Adim", None), ("B♭", S('x',1,3,3,3,1)), ("Cm", S('x',3,5,5,4,3, base=3)),
         ("Dm", S('x','x',0,2,3,1)), ("E♭", S('x',6,8,8,8,6, base=6)), ("F", S(1,3,3,2,1,1))],
   "D7", "xx0212", "capo 3 + tvary e-moll (Em→Gm, G→B♭, A→C, Bm→Dm, C→E♭, D→F)."),
- ("d", [("Dm", S('x','x',0,2,3,1)), ("Edim", None), ("F", S(1,3,3,2,1,1)), ("G", S(3,2,0,0,0,3)),
+ ("d", [("Dm", S('x','x',0,2,3,1)), ("Edim", None), ("F", S(1,3,3,2,1,1)), ("Gm", S(3,5,5,3,3,3, base=3)),
         ("Am", S('x',0,2,2,1,0)), ("B♭", S('x',1,3,3,3,1)), ("C", S('x',3,2,0,1,0))],
   "A7", "x02020", "Bez capo — Dm/F/G/Am/B♭/C = převážně otevřené tvary; jinak capo 5 + tvary a-moll (Am→Dm)."),
 ]
@@ -246,7 +246,7 @@ def page(sym, chords, v7n, v7s, tip, ki, is_first):
             parts.append(f'<text x="{xcol}" y="963" font-size="10.5" fill="var(--fg)">{tip[(half+1):]}</text>')
         else:
             parts.append(f'<text x="{xcol}" y="948" font-size="10.5" fill="var(--fg)">{tip}</text>')
-        parts.append('<text x="1000" y="984" font-size="10.5" fill="var(--muted)">Capo = strunný pásek: posune tvary snadné tóniny')
+        parts.append('<text x="1000" y="984" font-size="10.5" fill="var(--muted)">Capo (kapodastr): posune tvary snadné tóniny')
         parts.append('<text x="1000" y="999" font-size="10.5" fill="var(--muted)">o N pražců nahoru — vznikne tónina této stránky.</text>')
     parts.append('<text x="1000" y="1014" font-size="10.5" fill="var(--muted)">Funkce: <tspan fill="var(--tonic)" font-weight="700">i tónika</tspan> · <tspan fill="var(--sub)" font-weight="700">iv/VI subdominanta</tspan> · <tspan fill="var(--dom)" font-weight="700">v dominanta</tspan></text>')
     parts.append('<text x="1000" y="1029" font-size="10.5" fill="var(--muted)"><tspan fill="var(--vin)" font-weight="700">III dur sourozenec</tspan> — mění se tóny, ne role akordů.</text>')
