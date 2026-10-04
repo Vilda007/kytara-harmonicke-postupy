@@ -195,8 +195,8 @@ const App = () => {
     const currentKeyData = data.keys.find(k => k.symbol === activeKey.symbol);
 
     return (
-        <div className="max-w-6xl mx-auto p-8">
-            <header className="flex flex-col items-center text-center mb-12 gap-4">
+        <div className="max-w-3xl mx-auto p-8 flex flex-col gap-12">
+            <header className="flex flex-col items-center text-center mb-4 gap-4">
                 <div className="flex gap-2 bg-white p-1 rounded-full shadow-sm border border-gray-200">
                     <button onClick={() => setLang('en')} className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${lang === 'en' ? 'bg-amber-500 text-white shadow-inner' : 'text-gray-500 hover:text-gray-700'}`}>EN</button>
                     <button onClick={() => setLang('cs')} className={`px-4 py-1 rounded-full text-xs font-bold transition-all ${lang === 'cs' ? 'bg-amber-500 text-white shadow-inner' : 'text-gray-500 hover:text-gray-700'}`}>CZ</button>
@@ -205,56 +205,54 @@ const App = () => {
                 <p className="text-gray-500">{t.subtitle}</p>
             </header>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col gap-12">
+                <section className="flex flex-col items-center gap-6">
                     <CircleOfFifths activeKey={activeKey} onKeyChange={setActiveKey} />
                     <div className="text-center max-w-md">
                         <h2 className="text-xl font-bold mb-2">{t.currentKey}: {activeKey.symbol} {activeKey.type === 'major' ? (lang === 'en' ? 'Major' : 'dur') : (lang === 'en' ? 'Minor' : 'mol')}</h2>
                         <p className="text-sm text-gray-500">{currentKeyData?.capoTip && typeof currentKeyData.capoTip === 'object' ? currentKeyData.capoTip[lang] : (currentKeyData?.capoTip || "Select a key on the circle to explore.")}</p>
                     </div>
-                </div>
+                </section>
 
-                <div className="space-y-8">
-                    <section className="bg-white p-6 rounded-2xl shadow-sm">
-                        <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.diatonicChords}</h3>
-                        <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 items-start">
-                            {Object.entries(currentKeyData?.chords || {}).map(([role, chord]) => (
-                                <div key={role} className="flex flex-col items-center">
-                                    <div className="px-3 py-1 rounded-full text-xs font-bold mb-2 h-8 flex items-center justify-center text-center"
-                                         style={{backgroundColor: 'var(--neutral)', color: COLOR_MAP[role] || 'var(--fg)'}}>
-                                        {role} {t[role] ? `· ${t[role]}` : ''}
-                                    </div>
-                                    <ChordDiagram chord={chord} numeral={role} lang={lang} />
+                <section className="bg-white p-6 rounded-2xl shadow-sm">
+                    <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.diatonicChords}</h3>
+                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 items-start">
+                        {Object.entries(currentKeyData?.chords || {}).map(([role, chord]) => (
+                            <div key={role} className="flex flex-col items-center">
+                                <div className="px-3 py-1 rounded-full text-xs font-bold mb-2 h-8 flex items-center justify-center text-center"
+                                     style={{backgroundColor: 'var(--neutral)', color: COLOR_MAP[role] || 'var(--fg)'}}>
+                                    {role} {t[role] ? `· ${t[role]}` : ''}
                                 </div>
-                            ))}
-                        </div>
-                    </section>
+                                <ChordDiagram chord={chord} numeral={role} lang={lang} />
+                            </div>
+                        ))}
+                    </div>
+                </section>
 
-                    <section className="bg-white p-6 rounded-2xl shadow-sm">
-                        <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.provenProgressions}</h3>
-                        <div className="space-y-6">
-                            {(activeKey.type === 'minor' ? (data.minorProgressions || data.progressions) : data.progressions).map((prog, i) => (
-                                <div key={i} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
-                                    <div className="flex items-center gap-3">
-                                        <div className="flex gap-2">
-                                            {prog.sequence.map((role, idx) => {
-                                                const chord = currentKeyData?.chords[role];
-                                                return (
-                                                    <span key={idx} className="px-2 py-1 rounded bg-gray-100 font-bold text-sm"
-                                                          style={{color: COLOR_MAP[role] || 'var(--fg)'}}>
-                                                        {chord ? chord.name : role}
-                                                    </span>
-                                                );
-                                            })}
-                                        </div>
-                                        <span className="text-gray-400 text-sm">—</span>
-                                        <span className="text-sm font-medium">{typeof prog.genre === 'object' ? prog.genre[lang] : prog.genre}</span>
+                <section className="bg-white p-6 rounded-2xl shadow-sm">
+                    <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.provenProgressions}</h3>
+                    <div className="space-y-6">
+                        {(activeKey.type === 'minor' ? (data.minorProgressions || data.progressions) : data.progressions).map((prog, i) => (
+                            <div key={i} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors">
+                                <div className="flex items-center gap-3">
+                                    <div className="flex gap-2">
+                                        {prog.sequence.map((role, idx) => {
+                                            const chord = currentKeyData?.chords[role];
+                                            return (
+                                                <span key={idx} className="px-2 py-1 rounded bg-gray-100 font-bold text-sm"
+                                                      style={{color: COLOR_MAP[role] || 'var(--fg)'}}>
+                                                    {chord ? chord.name : role}
+                                                </span>
+                                            );
+                                        })}
                                     </div>
+                                    <span className="text-gray-400 text-sm">—</span>
+                                    <span className="text-sm font-medium">{typeof prog.genre === 'object' ? prog.genre[lang] : prog.genre}</span>
                                 </div>
-                            ))}
-                        </div>
-                    </section>
-                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
             </div>
         </div>
     );
