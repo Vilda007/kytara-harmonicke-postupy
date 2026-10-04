@@ -153,7 +153,7 @@ PHRASES = [
  ('u barré: číslo vlevo = pražec startu', 'on barres: the left number = the starting fret'),
  ('Funkce: <tspan', 'Functions: <tspan'),
  ('III dur sourozenec', 'III the major sibling'),
- ('Vztahy platí v każdé dur tónině — mění se tóny, ne role akordů.', 'The relations hold in every major key — the notes change, not the roles.'),
+ ('Vztahy platí v každé dur tónině — mění se tóny, ne role akordů.', 'The relations hold in every major key — the notes change, not the roles.'),
  ('— mění se tóny, ne role akordů.', '— the notes change, not the roles.'),
  ('Jak číst hmatová schémata', 'How to read the chord diagrams'),
  ('Barré tvary a capo', 'Barre shapes and the capo'),

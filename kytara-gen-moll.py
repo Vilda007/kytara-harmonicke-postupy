@@ -227,7 +227,7 @@ def page(sym, chords, v7n, v7s, tip, ki, is_first):
     if is_first:
         parts.append('<text x="66" y="912" class="ptitle" font-size="15">Transpozice na kytaře: barré tvar = jeden úchop, libovolná tónina</text>')
     else:
-        parts.append('<text x="66" y="912" class="ptitle" font-size="15">Transpozice barré tvary <tspan fill="var(--muted)" font-size="11" font-weight="400">— tvary platí v każdé tónině; tónina = pražec, na němž sedí tónika</tspan></text>')
+        parts.append('<text x="66" y="912" class="ptitle" font-size="15">Transpozice barré tvary <tspan fill="var(--muted)" font-size="11" font-weight="400">— tvary platí v každé tónině; tónina = pražec, na němž sedí tónika</tspan></text>')
     bx0 = 66
     for (t, sh, _bs, e1, e2) in BARR:
         parts.append(barrbox(bx0, 928, t, sh, 1, e1, e2, ROOTS[t]))

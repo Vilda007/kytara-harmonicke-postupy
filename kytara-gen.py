@@ -253,7 +253,7 @@ def page(sym, chords, tip, ki, capo_note, is_first):
     if is_first:
         parts.append('<text x="66" y="912" class="ptitle" font-size="15">Transpozice na kytaře: barré tvar = jeden úchop, libovolná tónina</text>')
     else:
-        parts.append(f'<text x="66" y="912" class="ptitle" font-size="15">Transpozice barré tvary <tspan fill="var(--muted)" font-size="11" font-weight="400">— tvary platí v każdé tónině; tónina = pražec, na němž sedí tónika</tspan></text>')
+        parts.append(f'<text x="66" y="912" class="ptitle" font-size="15">Transpozice barré tvary <tspan fill="var(--muted)" font-size="11" font-weight="400">— tvary platí v každé tónině; tónina = pražec, na němž sedí tónika</tspan></text>')
     bx0 = 66
     for (t, sh, bs, e1, e2) in BARR:
         parts.append(barrbox(bx0, 928, t, sh[0], 1, e1, e2, ROOTS[t]))
@@ -283,7 +283,7 @@ def page(sym, chords, tip, ki, capo_note, is_first):
         parts.append(f'<text x="{xcol}" y="984" font-size="10.5" fill="var(--muted)">Capo = strunný pásek: posune tvary snadné tóniny</text>')
         parts.append(f'<text x="{xcol}" y="999" font-size="10.5" fill="var(--muted)">o N pražců nahoru — vznikne tónina této stránky.</text>')
     parts.append(f'<text x="{xcol}" y="1014" font-size="10.5" fill="var(--muted)">Funkce: <tspan fill="var(--tonic)" font-weight="700">I tónika</tspan> · <tspan fill="var(--sub)" font-weight="700">IV subdominanta</tspan> · <tspan fill="var(--dom)" font-weight="700">V dominanta</tspan> · <tspan fill="var(--vin)" font-weight="700">vi rel. mol</tspan></text>')
-    parts.append(f'<text x="{xcol}" y="1029" font-size="10.5" fill="var(--muted)">Vztahy platí v każdé dur tónině — mění se tóny, ne role akordů.</text>')
+    parts.append(f'<text x="{xcol}" y="1029" font-size="10.5" fill="var(--muted)">Vztahy platí v každé dur tónině — mění se tóny, ne role akordů.</text>')
     parts.append('</svg></div>')
     return ''.join(parts)
 
