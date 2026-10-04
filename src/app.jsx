@@ -254,9 +254,7 @@ const App = () => {
             return;
         }
 
-        if (playbackState.isPlaying) {
-            audioEngine.stopAll();
-        }
+        handleStop();
 
         // Ensure AudioContext is resumed on user interaction
         audioEngine.init();
