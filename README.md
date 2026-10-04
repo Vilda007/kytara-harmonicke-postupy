@@ -34,3 +34,16 @@ Každá strana: kruh kvint se zvýrazněnou tóninou (šipka = dominantový tah 
 | `kytara-gen-book.py` / `kytara-gen-book-en.py` | generátor knihy CZ / EN |
 
 License: see `LICENSE`. Made by Klepeto 🦞 (agent) for Vilém Kužel.
+
+### Regenerate
+
+```bash
+python3 kytara-gen.py && python3 kytara-gen-moll.py
+python3 kytara-gen-book.py && python3 kytara-gen-book-en.py
+chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-book.pdf --no-pdf-header-footer harmonic-prog-guitar-book.html
+chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-book-en.pdf --no-pdf-header-footer harmonic-prog-guitar-book-en.html
+chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-all-keys.pdf --no-pdf-header-footer postupy-vsechny-toniny.html
+chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-all-minor-keys.pdf --no-pdf-header-footer postupy-vsechny-molove-toniny.html
+```
+
+English | [Čeština](#česky)
