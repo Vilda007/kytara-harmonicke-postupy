@@ -129,6 +129,11 @@ def extract_data():
     from fix_missing_chords import apply_dim_fixes
     apply_dim_fixes(data)
 
+    # Same for the V7 dominant sevenths (the exporter itself used to write
+    # fingerings as one-character strings, which the web app skips).
+    from fix_v7_chords import apply_v7_fixes
+    apply_v7_fixes(data)
+
     return data
 
 if __name__ == "__main__":

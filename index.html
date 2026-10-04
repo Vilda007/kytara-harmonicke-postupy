@@ -94,6 +94,8 @@
             if (!chord) return <div className="w-24 h-32 flex items-center justify-center text-xs text-gray-400 border border-dashed border-gray-300 rounded">N/A</div>;
 
             const { fingering, baseFret, name } = chord;
+            // tolerate numeric strings ('3', '0') in the data
+            const frets = fingering.map(f => typeof f === 'string' && f !== 'x' ? parseInt(f, 10) : f);
             const stringSpacing = 16;
             const fretSpacing = 20;
 
@@ -116,7 +118,7 @@
                         )}
 
                         {/* Muted/Open markers - enlarged and bolder */}
-                        {fingering.map((f, i) => {
+                        {frets.map((f, i) => {
                             const sx = 20 + i * stringSpacing;
                             if (f === 'x') return <text key={`x${i}`} x={sx} y={8} fontSize="12" fontWeight="700" fill="#8a8074" textAnchor="middle">✕</text>;
                             if (f === 'o' || f === 0) return <text key={`o${i}`} x={sx} y={8} fontSize="12" fontWeight="700" fill="var(--line)" textAnchor="middle">○</text>;
@@ -124,11 +126,11 @@
                         })}
 
                         {/* Barre highlight */}
-                        {fingering.filter(f => f === baseFret && typeof f === 'number').length >= 2 && (
+                        {frets.filter(f => f === baseFret && typeof f === 'number').length >= 2 && (
                             <rect
-                                x={fingering[0] === baseFret ? 19 : 33}
+                                x={frets[0] === baseFret ? 19 : 33}
                                 y={13}
-                                width={fingering[0] === baseFret ? 82 : 68}
+                                width={frets[0] === baseFret ? 82 : 68}
                                 height="14"
                                 rx="7"
                                 className="barre-rect"
@@ -136,7 +138,7 @@
                         )}
 
                         {/* Dots - ensured visibility on highest string */}
-                        {fingering.map((f, i) => {
+                        {frets.map((f, i) => {
                             if (typeof f !== 'number' || f === 0) return null;
                             const r = f - baseFret;
                             return <circle key={`d${i}`} cx={20 + i * stringSpacing} cy={10 + r * fretSpacing + 10} r="6.5" className="chord-dot" />;
