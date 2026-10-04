@@ -227,6 +227,24 @@ const App = () => {
         setPlaybackState(prev => ({ ...prev, bpmOverride: parseInt(e.target.value, 10) }));
     };
 
+    const handlePlayChord = (chord) => {
+        if (!chord) return;
+
+        // Stop any current progression to avoid overlap
+        audioEngine.stopAll();
+        setPlaybackState({
+            isPlaying: false,
+            isMuted: false,
+            bpmOverride: null,
+            currentChordIndex: -1,
+            currentProgIndex: -1
+        });
+
+        const freqs = audioEngine.getChordFrequencies(chord);
+        // Play as a standard downstrum for single chord clicks
+        audioEngine.playStrum(freqs, 'down', audioEngine.ctx.currentTime);
+    };
+
     const handlePlayProgression = async (progIndex, prog) => {
         if (playbackState.isPlaying && playbackState.currentProgIndex === progIndex) {
             handleStop();
@@ -322,7 +340,11 @@ const App = () => {
                     <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 items-start">
                         {Object.entries(currentKeyData?.chords || {}).map(([role, chord]) => (
                             <div key={role} className="flex flex-col items-center">
-                                <div className="px-3 py-1 rounded-full text-xs font-bold mb-2 h-8 flex items-center justify-center text-center"
+                                <div className="px-3 py-1 rounded-full text-xs font-bold mb-2 h-8 flex items-center justify-center text-center cursor-pointer hover:brightness-90 transition-all"
+                                     onClick={(e) => {
+                                         e.stopPropagation();
+                                         handlePlayChord(chord);
+                                     }}
                                      style={{backgroundColor: 'var(--neutral)', color: COLOR_MAP[role] || 'var(--fg)'}}>
                                     {role} {t[role] ? `· ${t[role]}` : ''}
                                 </div>
@@ -378,7 +400,13 @@ const App = () => {
                                             const chord = currentKeyData?.chords[role];
                                             const isActive = playbackState.currentProgIndex === i && playbackState.currentChordIndex === idx;
                                             return (
-                                                <span key={idx} className={`px-2 py-1 rounded font-bold text-sm transition-all ${isActive ? 'bg-amber-400 text-white scale-110 shadow-sm' : 'bg-gray-100'}`}
+                                                <span
+                                                    key={idx}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        handlePlayChord(chord);
+                                                    }}
+                                                    className={`px-2 py-1 rounded font-bold text-sm transition-all cursor-pointer hover:brightness-90 ${isActive ? 'bg-amber-400 text-white scale-110 shadow-sm' : 'bg-gray-100'}`}
                                                       style={{color: isActive ? 'white' : (COLOR_MAP[role] || 'var(--fg)')}}>
                                                     {chord ? chord.name : role}
                                                 </span>
