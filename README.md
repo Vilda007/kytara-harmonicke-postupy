@@ -15,12 +15,14 @@ Each page: circle of fifths with the key highlighted → rule of thumb *V is one
 Everything is **generated** — the Python generators hold the data tables and emit the HTML; PDFs are rendered headlessly. Edit a table, rerun, done.
 
 ### Interactive web app
-The live page is a React app. Source lives in `src/app.jsx`; the built artifacts (`app.js`, `app.css`) are committed so GitHub Pages needs no CI:
+The live page is a React app. Source lives in `src/app.jsx`; the built artifacts (`app.v1.js`, `app.v1.css`) are committed so GitHub Pages needs no CI:
 
 ```bash
 npm install
-npm run build   # esbuild bundle + Tailwind CSS -> app.js, app.css
+npm run build   # esbuild bundle + Tailwind CSS -> app.v1.js, app.v1.css
 ```
+
+Web data (`chords.json`, 24 keys + rhythm patterns) exports from the generators via `python3 export_data.py`.
 
 ---
 
@@ -44,7 +46,9 @@ Každá strana: kruh kvint se zvýrazněnou tóninou (šipka = dominantový tah 
 | `harmonic-prog-guitar.png` | preview C-dur |
 | `kytara-gen.py` / `kytara-gen-moll.py` | generátor DUR / MOL sady |
 | `kytara-gen-book.py` / `kytara-gen-book-en.py` | generátor knihy CZ / EN |
-| `src/app.jsx` → `app.js` + `app.css` | interaktivní web (React, build: `npm install && npm run build`) |
+| `gen-en-sheets.py` | EN listy z čerstvých CZ (sdílí překlady s EN knihou; gate = 0 CZ znaků) |
+| `export_data.py` → `chords.json` | data pro interaktivní web (24 tónin + rytmické patterny) |
+| `src/app.jsx` → `app.v1.js` + `app.v1.css` | interaktivní web (React, build: `npm install && npm run build`) |
 
 **Chyby & vylepšení** — otevři issue nebo pošli PR: <https://github.com/Vilda007/kytara-harmonicke-postupy>
 
@@ -55,10 +59,15 @@ License: see `LICENSE`. Made by Klepeto 🦞 (agent) for Vilém Kužel.
 ```bash
 python3 kytara-gen.py && python3 kytara-gen-moll.py
 python3 kytara-gen-book.py && python3 kytara-gen-book-en.py
+python3 gen-en-sheets.py   # EN listy — VŽDY po CZ generátorech (čtou čerstvé CZ HTML)
+python3 export_data.py     # chords.json pro web
+npm run build      # app.v1.js + app.v1.css
 chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-book.pdf --no-pdf-header-footer harmonic-prog-guitar-book.html
 chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-book-en.pdf --no-pdf-header-footer harmonic-prog-guitar-book-en.html
 chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-all-keys.pdf --no-pdf-header-footer postupy-vsechny-toniny.html
+chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-all-keys-en.pdf --no-pdf-header-footer postupy-vsechny-toniny-en.html
 chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-all-minor-keys.pdf --no-pdf-header-footer postupy-vsechny-molove-toniny.html
+chromium --headless --disable-gpu --no-sandbox --print-to-pdf=harmonic-prog-guitar-all-minor-keys-en.pdf --no-pdf-header-footer postupy-vsechny-molove-toniny-en.html
 ```
 
 English | [Čeština](#česky)

@@ -8,6 +8,11 @@
     <link rel="apple-touch-icon" href="favicon-180.png">
     <link rel="shortcut icon" href="favicon-32.png">
     <link rel="stylesheet" href="app.v1.css">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { analytics_storage: 'denied' });
+    </script>
     <style>
         :root {
             --bg: #faf9f5;
@@ -37,5 +42,38 @@
     <div id="root"></div>
 
     <script src="app.v1.js"></script>
+
+    <!-- Cookie consent (EU): GA loads only after an explicit choice; choice persists in localStorage -->
+    <div id="cookieConsent" role="dialog" aria-label="Cookie consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#172033;color:#e8f1f4;padding:14px 20px;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;font-size:.9rem">
+      <span>Používáme cookies pro anonymní statistiku návštěvnosti · We use cookies for anonymous traffic stats</span>
+      <button id="cookieAccept" style="background:#e8a33d;color:#1c1206;border:0;border-radius:8px;padding:8px 18px;font-weight:600;cursor:pointer">Přijmout / Accept</button>
+      <button id="cookieDeny" style="background:transparent;color:#e8f1f4;border:1px solid #64748b;border-radius:8px;padding:8px 18px;font-weight:600;cursor:pointer">Odmítnout / Deny</button>
+    </div>
+    <script>
+      (function () {
+        var banner = document.getElementById('cookieConsent');
+        try {
+          var saved = localStorage.getItem('kytara-cookie-consent');
+          if (saved) return;              // volba už byla uložena — banner nezobrazovat
+          banner.style.display = 'flex';
+          function gtagLoad() {           // gtag.js + config až po explicitním souhlasu
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TF5EBMGRYY';
+            document.head.appendChild(s);
+            gtag('js', new Date());
+            gtag('config', 'G-TF5EBMGRYY');
+          }
+          function choose(val) {
+            try { localStorage.setItem('kytara-cookie-consent', val); } catch (e) {}
+            gtag('consent', 'update', { analytics_storage: val === 'granted' ? 'granted' : 'denied' });
+            if (val === 'granted') gtagLoad();
+            banner.style.display = 'none';
+          }
+          document.getElementById('cookieAccept').addEventListener('click', function () { choose('granted'); });
+          document.getElementById('cookieDeny').addEventListener('click', function () { choose('denied'); });
+        } catch (e) { /* localStorage nedostupný — statistiku nespouštěj */ }
+      })();
+    </script>
 </body>
 </html>

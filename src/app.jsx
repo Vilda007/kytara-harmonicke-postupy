@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { audioEngine } from './audio';
 
@@ -19,7 +19,12 @@ const I18N = {
         // Other
         easyPath: "Easy path: ",
         capoNote: "Capo = clamp: shifts easy shapes up by N frets.",
-        funcHint: "Function: "
+        funcHint: "Function: ",
+        downloads: "Downloads",
+        htmlSource: "HTML source",
+        reportCta: "Found an error or an improvement? Please open an issue or a PR:",
+        repoLink: "github.com/Vilda007/kytara-harmonicke-postupy",
+        bluesGenre: "12-bar blues"
     },
     cs: {
         title: "Harmonické postupy na kytaru",
@@ -37,7 +42,12 @@ const I18N = {
         // Other
         easyPath: "Nejsnazší cesta: ",
         capoNote: "Capo = strunný pásek: posune snadné tvary o N polotónů nahoru.",
-        funcHint: "Funkce: "
+        funcHint: "Funkce: ",
+        downloads: "Ke stažení",
+        htmlSource: "HTML zdroj",
+        reportCta: "Našel jsi chybu nebo máš nápad na vylepšení? Otevři issue nebo pošli PR:",
+        repoLink: "github.com/Vilda007/kytara-harmonicke-postupy",
+        bluesGenre: "blues, 12 taktů"
     }
 };
 
@@ -173,6 +183,14 @@ const App = () => {
         currentProgIndex: -1
     });
 
+    // Live mirrors for the playback loop — closures over playbackState see
+    // stale values (mute/BPM changes never reached the running setTimeout chain).
+    const mutedRef = useRef(false);
+    const bpmRef = useRef(null);
+    const timerRef = useRef(null);
+    useEffect(() => { mutedRef.current = playbackState.isMuted; }, [playbackState.isMuted]);
+    useEffect(() => { bpmRef.current = playbackState.bpmOverride; }, [playbackState.bpmOverride]);
+
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const urlLang = params.get('lang') || 'en';
@@ -199,7 +217,10 @@ const App = () => {
 
     useEffect(() => {
         if (playbackState.isPlaying) {
-            return () => audioEngine.stopAll();
+            return () => {
+                if (timerRef.current) { clearTimeout(timerRef.current); timerRef.current = null; }
+                audioEngine.stopAll();
+            };
         }
     }, [playbackState.isPlaying]);
 
@@ -209,6 +230,7 @@ const App = () => {
     const currentKeyData = data.keys.find(k => k.symbol === activeKey.symbol);
 
     const handleStop = () => {
+        if (timerRef.current) { clearTimeout(timerRef.current); timerRef.current = null; }  // Stop must kill the loop, not just oscillators
         audioEngine.stopAll();
         setPlaybackState({
             isPlaying: false,
@@ -256,6 +278,7 @@ const App = () => {
 
         if (playbackState.isPlaying) {
             audioEngine.stopAll();
+            if (timerRef.current) { clearTimeout(timerRef.current); timerRef.current = null; }  // kill the previous loop before starting a new one
         }
 
         // Ensure AudioContext is resumed on user interaction
@@ -271,9 +294,7 @@ const App = () => {
         const rhythmKey = prog.rhythm || 'pop';
         const rhythmData = data.rhythms[rhythmKey] || data.rhythms['pop'];
         const baseBpm = rhythmData.bpm || 120;
-        const currentBpm = playbackState.bpmOverride || baseBpm;
         const pattern = rhythmData.pattern || ["D"];
-        const beatDuration = 60 / currentBpm / 2; // 8th notes
 
         const sequence = prog.sequence;
         let currentStep = 0;
@@ -291,8 +312,8 @@ const App = () => {
             const chord = currentKeyData.chords[sequence[currentChordIdx]];
             const freqs = audioEngine.getChordFrequencies(chord);
 
-            // Only play if NOT muted
-            if (!playbackState.isMuted) {
+            // Only play if NOT muted (live mirror — closure over state is stale); guard null freqs (missing shapes)
+            if (freqs && !mutedRef.current) {
                 if (stepType === 'D') {
                     audioEngine.playStrum(freqs, 'down', audioEngine.ctx.currentTime);
                 } else if (stepType === 'U') {
@@ -312,10 +333,10 @@ const App = () => {
             }
 
             // Recalculate duration in case BPM changed mid-playback
-            const activeBpm = playbackState.bpmOverride || baseBpm;
+            const activeBpm = bpmRef.current || baseBpm;
             const currentDuration = 60 / activeBpm / 2;
 
-            setTimeout(playNextStep, currentDuration * 1000);
+            timerRef.current = setTimeout(playNextStep, currentDuration * 1000);
         };
 
         playNextStep();
@@ -429,8 +450,67 @@ const App = () => {
                                 )}
                             </div>
                         ))}
+                        {/* 12-bar blues as a playable progression (blues rhythm = data.rhythms.blues) */}
+                        {data.blues && data.rhythms && (() => {
+                            const isMinor = activeKey.type === 'minor';
+                            // minor blues = harmonic-minor form i×4–iv×2–i×2–V7–iv–i–V7 (matches the sheets/book);
+                            // major: V bars use the V7 data (proper dominant-7 shape)
+                            const seqRoles = isMinor
+                                ? ['i', 'i', 'i', 'i', 'iv', 'iv', 'i', 'i', 'V7', 'iv', 'i', 'V7']
+                                : data.blues.map(b => { const r = (typeof b === 'string' ? b : b[0]); return r === 'V' ? 'V7' : r; });
+                            const prog = { sequence: seqRoles, genre: t.bluesGenre, rhythm: 'blues' };
+                            const progCount = (isMinor ? (data.minorProgressions || data.progressions) : data.progressions).length;
+                            const blIndex = progCount;
+                            const active = playbackState.currentProgIndex === blIndex;
+                            return (
+                                <div
+                                    onClick={() => handlePlayProgression(blIndex, prog)}
+                                    className={`flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${active ? 'bg-amber-50 ring-1 ring-amber-200' : 'hover:bg-gray-50'}`}
+                                >
+                                    <div className="flex items-center flex-wrap gap-2">
+                                        {seqRoles.map((role, idx) => {
+                                            const chord = currentKeyData?.chords[role];
+                                            const isActive = active && playbackState.currentChordIndex === idx;
+                                            const label = chord ? (chord.name.endsWith('7') ? chord.name : chord.name + '7') : role;
+                                            return (
+                                                <span
+                                                    key={idx}
+                                                    onClick={(e) => { e.stopPropagation(); handlePlayChord(chord); }}
+                                                    className={`px-2 py-1 rounded font-bold text-sm transition-all cursor-pointer hover:brightness-90 ${isActive ? 'bg-amber-400 text-white scale-110 shadow-sm' : 'bg-gray-100'}`}
+                                                    style={{ color: isActive ? 'white' : (COLOR_MAP[role] || 'var(--fg)') }}
+                                                >
+                                                    {label}
+                                                </span>
+                                            );
+                                        })}
+                                    </div>
+                                    <span className="text-sm font-medium text-right">{t.bluesGenre}</span>
+                                </div>
+                            );
+                        })()}
                     </div>
                 </section>
+
+                {/* Footer: downloads + improvement CTA (both language sections carry the full download set) */}
+                <footer className="bg-white p-6 rounded-2xl shadow-sm flex flex-col gap-3">
+                    <h3 className="text-lg font-bold">{t.downloads}</h3>
+                    <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                        <a href="harmonic-prog-guitar-book-en.pdf" className="text-amber-600 hover:underline">Book EN (PDF, 28 p.)</a>
+                        <a href="harmonic-prog-guitar-book.pdf" className="text-amber-600 hover:underline">Kniha CZ (PDF, 28 s.)</a>
+                        <a href="harmonic-prog-guitar-all-keys-en.pdf" className="text-amber-600 hover:underline">Major keys EN (PDF)</a>
+                        <a href="harmonic-prog-guitar-all-keys.pdf" className="text-amber-600 hover:underline">Dur tóniny CZ (PDF)</a>
+                        <a href="harmonic-prog-guitar-all-minor-keys-en.pdf" className="text-amber-600 hover:underline">Minor keys EN (PDF)</a>
+                        <a href="harmonic-prog-guitar-all-minor-keys.pdf" className="text-amber-600 hover:underline">Molové tóniny CZ (PDF)</a>
+                        <a href="postupy-vsechny-toniny-en.html" className="text-gray-500 hover:underline">{t.htmlSource} EN (major)</a>
+                        <a href="postupy-vsechny-molove-toniny-en.html" className="text-gray-500 hover:underline">{t.htmlSource} EN (minor)</a>
+                        <a href="postupy-vsechny-toniny.html" className="text-gray-500 hover:underline">{t.htmlSource} CZ (dur)</a>
+                        <a href="postupy-vsechny-molove-toniny.html" className="text-gray-500 hover:underline">{t.htmlSource} CZ (mol)</a>
+                    </div>
+                    <p className="text-sm text-gray-600 pt-2 border-t">
+                        {t.reportCta}{' '}
+                        <a href="https://github.com/Vilda007/kytara-harmonicke-postupy/issues" className="text-amber-600 font-bold hover:underline">{t.repoLink}</a>
+                    </p>
+                </footer>
             </div>
         </div>
     );

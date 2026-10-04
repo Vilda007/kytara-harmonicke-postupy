@@ -165,7 +165,7 @@ ROWS = [((("i", 0), ("VI", 5), ("III", 2), ("VII", 6)), "popová čtyřka, domov
         ((("i", 0), ("VII", 6), ("VI", 5), ("V", 'M')), "andaluská sestupná"),
         ((("i", 0), ("VII", 6), ("VI", 5), ("v", 4)), "měkčí modalní varianta"),
         ((("i", 0), ("III", 2), ("VII", 6), ("VI", 5)), "rotace čtyřky")]
-BLUESM = [0, 0, 0, 0, 3, 3, 0, 0, 'C', 3, 0, 'C']
+BLUESM = [0, 0, 0, 0, 3, 3, 0, 0, 'C', 3, 0, 'C']  # takt 9 = V7 (obrat), takt 12 = v (dech) — viz blues forma v molu; BLUEST v duru je [0,0,0,0,3,3,0,0,4,3,0,4]
 
 def row_svg(y, roms, real, genre, x0=712):
     out = [f'<text x="{x0}" y="{y}" class="roman" font-size="16.5">']
@@ -219,7 +219,7 @@ def page(sym, chords, v7n, v7s, tip, ki, is_first):
     parts.append('<text x="712" y="790" class="label" font-size="12.5">Blues v molu, 12 taktů:</text>')
     for bi, cell in enumerate(BLUESM):
         bx = 912 + bi*44 + (6 if bi >= 4 else 0) + (6 if bi >= 8 else 0)
-        cn = (nm[0] + '7') if isinstance(cell, int) else v7n
+        cn = (nm[cell] + '7') if isinstance(cell, int) else v7n  # 0→i7, 3→iv7, 4→v7; 'C'/'M'→V7
         parts.append(f'<rect x="{bx}" y="776" width="40" height="24" rx="5" class="cell"/>')
         parts.append(f'<text x="{bx+20}" y="792" text-anchor="middle" font-size="10" fill="var(--fg)">{cn}</text>')
 

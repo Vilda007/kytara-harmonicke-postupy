@@ -121,6 +121,13 @@ def extract_data():
     # BLUEST = [0, 0, 0, 0, 3, 3, 0, 0, 4, 3, 0, 4]
     data["blues"] = ns['BLUEST']
 
+    # Rhythm patterns for the interactive player (pop / blues / ballad).
+    data["rhythms"] = {
+        "pop":    {"bpm": 120, "pattern": ["D", " ", "D", "U", " ", "U", "D", "U"]},
+        "blues":  {"bpm": 90,  "pattern": ["D", "M", "D", "U", "M", "D", "U", " "]},
+        "ballad": {"bpm": 75,  "pattern": ["D", " ", " ", "D", "U", " ", " ", " "]},
+    }
+
     # Minor-key progressions (see MINOR_PROGRESSIONS above)
     data["minorProgressions"] = MINOR_PROGRESSIONS
 
