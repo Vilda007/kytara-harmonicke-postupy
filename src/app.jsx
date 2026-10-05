@@ -383,7 +383,7 @@ const App = () => {
                                     {rhythm.pattern.map((step, i) => {
                                         const symbols = { 'D': '↓', 'U': '↑', 'M': 'X' };
                                         return (
-                                            <div key={i} className="w-6 h-8 flex-shrink-0 flex items-center justify-center rounded bg-white border border-gray-200 text-xs font-bold text-gray-400">
+                                            <div key={i} className="w-6 h-8 flex-shrink-0 flex items-center justify-center rounded bg-white border border-gray-200 text-sm font-black text-gray-600">
                                                 {step === ' ' ? '' : (symbols[step] || step)}
                                             </div>
                                         );
