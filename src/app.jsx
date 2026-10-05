@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { audioEngine } from './audio';
+import './sw-registration';
 
 const I18N = {
     en: {

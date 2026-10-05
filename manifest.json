@@ -1,0 +1,22 @@
+{
+  "short_name": "GuitarHarmony",
+  "name": "Guitar Chord Progressions",
+  "description": "Interactive Harmony Guide for Guitar",
+  "icons": [
+    {
+      "src": "favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#faf9f5",
+  "display": "standalone",
+  "theme_color": "#f59e0b"
+}
