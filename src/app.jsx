@@ -125,7 +125,7 @@ const CircleOfFifths = ({ activeKey, onKeyChange }) => {
 
     return (
         <div className="flex justify-center items-center p-4 bg-white rounded-2xl shadow-sm">
-            <svg width="600" height="600" viewBox="0 0 600 600">
+            <svg className="w-full h-auto max-w-[600px]" viewBox="0 0 600 600">
                 <circle cx={centerX} cy={centerY} r={R_RING} fill="none" stroke="#d7d3c8" strokeWidth="1" />
                 <circle cx={centerX} cy={centerY} r={R_MINOR} fill="none" stroke="#d7d3c8" strokeWidth="1" strokeDasharray="4 4" opacity="0.7" />
 
