@@ -379,12 +379,15 @@ const App = () => {
                                 <p className="text-sm text-gray-600 italic">
                                     {typeof rhythm.desc === 'object' ? rhythm.desc[lang] : rhythm.desc}
                                 </p>
-                                <div className="flex flex-wrap gap-1 justify-center py-2">
-                                    {rhythm.pattern.map((step, i) => (
-                                        <div key={i} className="w-6 h-8 flex items-center justify-center rounded bg-white border border-gray-200 text-xs font-bold text-gray-400">
-                                            {step === ' ' ? '' : step}
-                                        </div>
-                                    ))}
+                                <div className="flex flex-nowrap gap-1 justify-center py-2 overflow-x-auto">
+                                    {rhythm.pattern.map((step, i) => {
+                                        const symbols = { 'D': '↓', 'U': '↑', 'M': 'X' };
+                                        return (
+                                            <div key={i} className="w-6 h-8 flex-shrink-0 flex items-center justify-center rounded bg-white border border-gray-200 text-xs font-bold text-gray-400">
+                                                {step === ' ' ? '' : (symbols[step] || step)}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                                 <button
                                     onClick={() => {
@@ -530,6 +533,7 @@ const App = () => {
                                                 </span>
                                             );
                                         })}
+                                        <span className="text-gray-400 text-sm">—</span>
                                     </div>
                                     <span className="text-sm font-medium text-right">{t.bluesGenre}</span>
                                 </div>

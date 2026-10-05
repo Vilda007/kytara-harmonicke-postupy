@@ -8,42 +8,98 @@
       "chords": {
         "I": {
           "name": "C",
-          "fingering": ["x", 3, 2, 0, 1, 0],
+          "fingering": [
+            "x",
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "ii": {
           "name": "Dm",
-          "fingering": ["x", "x", 0, 2, 3, 1],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "iii": {
           "name": "Em",
-          "fingering": [0, 2, 2, 0, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "IV": {
           "name": "F",
-          "fingering": [1, 3, 3, 2, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            2,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "V": {
           "name": "G",
-          "fingering": [3, 2, 0, 0, 0, 3],
+          "fingering": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
           "baseFret": 1
         },
         "vi": {
           "name": "Am",
-          "fingering": ["x", 0, 2, 2, 1, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "vii°": {
           "name": "Bdim",
-          "fingering": ["x", 2, 3, 4, 3, "x"],
+          "fingering": [
+            "x",
+            2,
+            3,
+            4,
+            3,
+            "x"
+          ],
           "baseFret": 2
         },
         "V7": {
           "name": "G7",
-          "fingering": [3, 2, 0, 0, 0, 3],
+          "fingering": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
           "baseFret": 1
         }
       }
@@ -56,42 +112,98 @@
       "chords": {
         "I": {
           "name": "G",
-          "fingering": [3, 2, 0, 0, 0, 3],
+          "fingering": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
           "baseFret": 1
         },
         "ii": {
           "name": "Am",
-          "fingering": ["x", 0, 2, 2, 1, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "iii": {
           "name": "Bm",
-          "fingering": ["x", 2, 4, 4, 3, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            3,
+            2
+          ],
           "baseFret": 2
         },
         "IV": {
           "name": "C",
-          "fingering": ["x", 3, 2, 0, 1, 0],
+          "fingering": [
+            "x",
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "V": {
           "name": "D",
-          "fingering": ["x", "x", 0, 2, 3, 2],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            2
+          ],
           "baseFret": 1
         },
         "vi": {
           "name": "Em",
-          "fingering": [0, 2, 2, 0, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "vii°": {
           "name": "F♯dim",
-          "fingering": [2, 3, 4, 2, "x", "x"],
+          "fingering": [
+            2,
+            3,
+            4,
+            2,
+            "x",
+            "x"
+          ],
           "baseFret": 2
         },
         "V7": {
           "name": "D7",
-          "fingering": ["x", "x", 0, 2, 1, 2],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            1,
+            2
+          ],
           "baseFret": 1
         }
       }
@@ -104,42 +216,98 @@
       "chords": {
         "I": {
           "name": "D",
-          "fingering": ["x", "x", 0, 2, 3, 2],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            2
+          ],
           "baseFret": 1
         },
         "ii": {
           "name": "Em",
-          "fingering": [0, 2, 2, 0, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "iii": {
           "name": "F♯m",
-          "fingering": [2, 4, 4, 2, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            2,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "IV": {
           "name": "G",
-          "fingering": [3, 2, 0, 0, 0, 3],
+          "fingering": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
           "baseFret": 1
         },
         "V": {
           "name": "A",
-          "fingering": ["x", 0, 2, 2, 2, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
           "baseFret": 1
         },
         "vi": {
           "name": "Bm",
-          "fingering": ["x", 2, 4, 4, 3, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            3,
+            2
+          ],
           "baseFret": 2
         },
         "vii°": {
           "name": "C♯dim",
-          "fingering": ["x", 4, 5, 6, 5, "x"],
+          "fingering": [
+            "x",
+            4,
+            5,
+            6,
+            5,
+            "x"
+          ],
           "baseFret": 4
         },
         "V7": {
           "name": "A7",
-          "fingering": ["x", 0, 2, 0, 2, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            0,
+            2,
+            0
+          ],
           "baseFret": 1
         }
       }
@@ -152,42 +320,98 @@
       "chords": {
         "I": {
           "name": "A",
-          "fingering": ["x", 0, 2, 2, 2, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
           "baseFret": 1
         },
         "ii": {
           "name": "Bm",
-          "fingering": ["x", 2, 4, 4, 3, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            3,
+            2
+          ],
           "baseFret": 2
         },
         "iii": {
           "name": "C♯m",
-          "fingering": ["x", 4, 6, 6, 5, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            5,
+            4
+          ],
           "baseFret": 4
         },
         "IV": {
           "name": "D",
-          "fingering": ["x", "x", 0, 2, 3, 2],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            2
+          ],
           "baseFret": 1
         },
         "V": {
           "name": "E",
-          "fingering": [0, 2, 2, 1, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            1,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "vi": {
           "name": "F♯m",
-          "fingering": [2, 4, 4, 2, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            2,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "vii°": {
           "name": "G♯dim",
-          "fingering": [4, 5, 6, 4, "x", "x"],
+          "fingering": [
+            4,
+            5,
+            6,
+            4,
+            "x",
+            "x"
+          ],
           "baseFret": 4
         },
         "V7": {
           "name": "E7",
-          "fingering": [0, 2, 0, 1, 0, 0],
+          "fingering": [
+            0,
+            2,
+            0,
+            1,
+            0,
+            0
+          ],
           "baseFret": 1
         }
       }
@@ -200,42 +424,98 @@
       "chords": {
         "I": {
           "name": "E",
-          "fingering": [0, 2, 2, 1, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            1,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "ii": {
           "name": "F♯m",
-          "fingering": [2, 4, 4, 2, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            2,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "iii": {
           "name": "G♯m",
-          "fingering": [4, 6, 6, 4, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            4,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "IV": {
           "name": "A",
-          "fingering": ["x", 0, 2, 2, 2, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
           "baseFret": 1
         },
         "V": {
           "name": "B",
-          "fingering": ["x", 2, 4, 4, 4, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
           "baseFret": 2
         },
         "vi": {
           "name": "C♯m",
-          "fingering": ["x", 4, 6, 6, 5, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            5,
+            4
+          ],
           "baseFret": 4
         },
         "vii°": {
           "name": "D♯dim",
-          "fingering": ["x", 6, 7, 8, 7, "x"],
+          "fingering": [
+            "x",
+            6,
+            7,
+            8,
+            7,
+            "x"
+          ],
           "baseFret": 6
         },
         "V7": {
           "name": "B7",
-          "fingering": ["x", 2, 1, 2, 0, 2],
+          "fingering": [
+            "x",
+            2,
+            1,
+            2,
+            0,
+            2
+          ],
           "baseFret": 1
         }
       }
@@ -248,42 +528,98 @@
       "chords": {
         "I": {
           "name": "B",
-          "fingering": ["x", 2, 4, 4, 4, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
           "baseFret": 2
         },
         "ii": {
           "name": "C♯m",
-          "fingering": ["x", 4, 6, 6, 5, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            5,
+            4
+          ],
           "baseFret": 4
         },
         "iii": {
           "name": "D♯m",
-          "fingering": ["x", 6, 8, 8, 7, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            7,
+            6
+          ],
           "baseFret": 6
         },
         "IV": {
           "name": "E",
-          "fingering": [0, 2, 2, 1, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            1,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "V": {
           "name": "F♯",
-          "fingering": [2, 4, 4, 3, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            3,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "vi": {
           "name": "G♯m",
-          "fingering": [4, 6, 6, 4, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            4,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "vii°": {
           "name": "A♯dim",
-          "fingering": ["x", 1, 2, 3, 2, "x"],
+          "fingering": [
+            "x",
+            1,
+            2,
+            3,
+            2,
+            "x"
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "F♯7",
-          "fingering": [2, 4, 2, 3, 2, 2],
+          "fingering": [
+            2,
+            4,
+            2,
+            3,
+            2,
+            2
+          ],
           "baseFret": 2
         }
       }
@@ -296,42 +632,98 @@
       "chords": {
         "I": {
           "name": "F♯",
-          "fingering": [2, 4, 4, 3, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            3,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "ii": {
           "name": "G♯m",
-          "fingering": [4, 6, 6, 4, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            4,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "iii": {
           "name": "A♯m",
-          "fingering": ["x", 1, 3, 3, 2, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            2,
+            1
+          ],
           "baseFret": 1
         },
         "IV": {
           "name": "B",
-          "fingering": ["x", 2, 4, 4, 4, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
           "baseFret": 2
         },
         "V": {
           "name": "C♯",
-          "fingering": ["x", 4, 6, 6, 6, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            6,
+            4
+          ],
           "baseFret": 4
         },
         "vi": {
           "name": "D♯m",
-          "fingering": ["x", 6, 8, 8, 7, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            7,
+            6
+          ],
           "baseFret": 6
         },
         "vii°": {
           "name": "E♯dim",
-          "fingering": [1, 2, 3, 1, "x", "x"],
+          "fingering": [
+            1,
+            2,
+            3,
+            1,
+            "x",
+            "x"
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "C♯7",
-          "fingering": ["x", 4, 6, 4, 6, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            4,
+            6,
+            4
+          ],
           "baseFret": 4
         }
       }
@@ -344,42 +736,98 @@
       "chords": {
         "I": {
           "name": "D♭",
-          "fingering": [9, 11, 11, 10, 9, 9],
+          "fingering": [
+            9,
+            11,
+            11,
+            10,
+            9,
+            9
+          ],
           "baseFret": 9
         },
         "ii": {
           "name": "E♭m",
-          "fingering": ["x", 6, 8, 8, 7, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            7,
+            6
+          ],
           "baseFret": 6
         },
         "iii": {
           "name": "Fm",
-          "fingering": [1, 3, 3, 1, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            1,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "IV": {
           "name": "G♭",
-          "fingering": [2, 4, 4, 3, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            3,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "V": {
           "name": "A♭",
-          "fingering": [4, 6, 6, 5, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            5,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "vi": {
           "name": "B♭m",
-          "fingering": ["x", 1, 3, 3, 2, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            2,
+            1
+          ],
           "baseFret": 1
         },
         "vii°": {
           "name": "Cdim",
-          "fingering": ["x", 3, 4, 5, 4, "x"],
+          "fingering": [
+            "x",
+            3,
+            4,
+            5,
+            4,
+            "x"
+          ],
           "baseFret": 3
         },
         "V7": {
           "name": "G♯7",
-          "fingering": [4, 6, 4, 5, 4, 4],
+          "fingering": [
+            4,
+            6,
+            4,
+            5,
+            4,
+            4
+          ],
           "baseFret": 4
         }
       }
@@ -392,42 +840,98 @@
       "chords": {
         "I": {
           "name": "A♭",
-          "fingering": [4, 6, 6, 5, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            5,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "ii": {
           "name": "B♭m",
-          "fingering": ["x", 1, 3, 3, 2, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            2,
+            1
+          ],
           "baseFret": 1
         },
         "iii": {
           "name": "Cm",
-          "fingering": ["x", 3, 5, 5, 4, 3],
+          "fingering": [
+            "x",
+            3,
+            5,
+            5,
+            4,
+            3
+          ],
           "baseFret": 3
         },
         "IV": {
           "name": "D♭",
-          "fingering": [9, 11, 11, 10, 9, 9],
+          "fingering": [
+            9,
+            11,
+            11,
+            10,
+            9,
+            9
+          ],
           "baseFret": 9
         },
         "V": {
           "name": "E♭",
-          "fingering": ["x", 6, 8, 8, 8, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            8,
+            6
+          ],
           "baseFret": 6
         },
         "vi": {
           "name": "Fm",
-          "fingering": [1, 3, 3, 1, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            1,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "vii°": {
           "name": "Gdim",
-          "fingering": [3, 4, 5, 3, "x", "x"],
+          "fingering": [
+            3,
+            4,
+            5,
+            3,
+            "x",
+            "x"
+          ],
           "baseFret": 3
         },
         "V7": {
           "name": "E♭7",
-          "fingering": ["x", 6, 8, 6, 8, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            6,
+            8,
+            6
+          ],
           "baseFret": 6
         }
       }
@@ -440,42 +944,98 @@
       "chords": {
         "I": {
           "name": "E♭",
-          "fingering": ["x", 6, 8, 8, 8, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            8,
+            6
+          ],
           "baseFret": 6
         },
         "ii": {
           "name": "Fm",
-          "fingering": [1, 3, 3, 1, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            1,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "iii": {
           "name": "Gm",
-          "fingering": [3, 5, 5, 3, 3, 3],
+          "fingering": [
+            3,
+            5,
+            5,
+            3,
+            3,
+            3
+          ],
           "baseFret": 3
         },
         "IV": {
           "name": "A♭",
-          "fingering": [4, 6, 6, 5, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            5,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "V": {
           "name": "B♭",
-          "fingering": ["x", 1, 3, 3, 3, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "vi": {
           "name": "Cm",
-          "fingering": ["x", 3, 5, 5, 4, 3],
+          "fingering": [
+            "x",
+            3,
+            5,
+            5,
+            4,
+            3
+          ],
           "baseFret": 3
         },
         "vii°": {
           "name": "Ddim",
-          "fingering": ["x", 5, 6, 7, 6, "x"],
+          "fingering": [
+            "x",
+            5,
+            6,
+            7,
+            6,
+            "x"
+          ],
           "baseFret": 5
         },
         "V7": {
           "name": "B♭7",
-          "fingering": ["x", 1, 3, 1, 3, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            1,
+            3,
+            1
+          ],
           "baseFret": 1
         }
       }
@@ -488,42 +1048,98 @@
       "chords": {
         "I": {
           "name": "B♭",
-          "fingering": ["x", 1, 3, 3, 3, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "ii": {
           "name": "Cm",
-          "fingering": ["x", 3, 5, 5, 4, 3],
+          "fingering": [
+            "x",
+            3,
+            5,
+            5,
+            4,
+            3
+          ],
           "baseFret": 3
         },
         "iii": {
           "name": "Dm",
-          "fingering": ["x", "x", 0, 2, 3, 1],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "IV": {
           "name": "E♭",
-          "fingering": ["x", 6, 8, 8, 8, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            8,
+            6
+          ],
           "baseFret": 6
         },
         "V": {
           "name": "F",
-          "fingering": [1, 3, 3, 2, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            2,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "vi": {
           "name": "Gm",
-          "fingering": [3, 5, 5, 3, 3, 3],
+          "fingering": [
+            3,
+            5,
+            5,
+            3,
+            3,
+            3
+          ],
           "baseFret": 3
         },
         "vii°": {
           "name": "Adim",
-          "fingering": [5, 6, 7, 5, "x", "x"],
+          "fingering": [
+            5,
+            6,
+            7,
+            5,
+            "x",
+            "x"
+          ],
           "baseFret": 5
         },
         "V7": {
           "name": "F7",
-          "fingering": [1, 3, 1, 2, 1, 1],
+          "fingering": [
+            1,
+            3,
+            1,
+            2,
+            1,
+            1
+          ],
           "baseFret": 1
         }
       }
@@ -536,42 +1152,98 @@
       "chords": {
         "I": {
           "name": "F",
-          "fingering": [1, 3, 3, 2, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            2,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "ii": {
           "name": "Gm",
-          "fingering": [3, 5, 5, 3, 3, 3],
+          "fingering": [
+            3,
+            5,
+            5,
+            3,
+            3,
+            3
+          ],
           "baseFret": 3
         },
         "iii": {
           "name": "Am",
-          "fingering": ["x", 0, 2, 2, 1, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "IV": {
           "name": "B♭",
-          "fingering": ["x", 1, 3, 3, 3, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "V": {
           "name": "C",
-          "fingering": ["x", 3, 2, 0, 1, 0],
+          "fingering": [
+            "x",
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "vi": {
           "name": "Dm",
-          "fingering": ["x", "x", 0, 2, 3, 1],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "vii°": {
           "name": "Edim",
-          "fingering": [0, 1, 2, 0, "x", "x"],
+          "fingering": [
+            0,
+            1,
+            2,
+            0,
+            "x",
+            "x"
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "C7",
-          "fingering": ["x", 3, 2, 3, 1, 0],
+          "fingering": [
+            "x",
+            3,
+            2,
+            3,
+            1,
+            0
+          ],
           "baseFret": 1
         }
       }
@@ -584,42 +1256,98 @@
       "chords": {
         "i": {
           "name": "Am",
-          "fingering": ["x", 0, 2, 2, 1, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "ii°": {
           "name": "Bdim",
-          "fingering": ["x", 2, 3, 4, 3, "x"],
+          "fingering": [
+            "x",
+            2,
+            3,
+            4,
+            3,
+            "x"
+          ],
           "baseFret": 2
         },
         "III": {
           "name": "C",
-          "fingering": ["x", 3, 2, 0, 1, 0],
+          "fingering": [
+            "x",
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "iv": {
           "name": "Dm",
-          "fingering": ["x", "x", 0, 2, 3, 1],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "v": {
           "name": "Em",
-          "fingering": [0, 2, 2, 0, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "VI": {
           "name": "F",
-          "fingering": [1, 3, 3, 2, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            2,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "VII": {
           "name": "G",
-          "fingering": [3, 2, 0, 0, 0, 3],
+          "fingering": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "E7",
-          "fingering": [0, 2, 0, 1, 0, 0],
+          "fingering": [
+            0,
+            2,
+            0,
+            1,
+            0,
+            0
+          ],
           "baseFret": 1
         }
       }
@@ -632,42 +1360,98 @@
       "chords": {
         "i": {
           "name": "Em",
-          "fingering": [0, 2, 2, 0, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "ii°": {
           "name": "F♯dim",
-          "fingering": [2, 3, 4, 2, "x", "x"],
+          "fingering": [
+            2,
+            3,
+            4,
+            2,
+            "x",
+            "x"
+          ],
           "baseFret": 2
         },
         "III": {
           "name": "G",
-          "fingering": [3, 2, 0, 0, 0, 3],
+          "fingering": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
           "baseFret": 1
         },
         "iv": {
           "name": "Am",
-          "fingering": ["x", 0, 2, 2, 1, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "v": {
           "name": "Bm",
-          "fingering": ["x", 2, 4, 4, 3, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            3,
+            2
+          ],
           "baseFret": 2
         },
         "VI": {
           "name": "C",
-          "fingering": ["x", 3, 2, 0, 1, 0],
+          "fingering": [
+            "x",
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "VII": {
           "name": "D",
-          "fingering": ["x", "x", 0, 2, 3, 2],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            2
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "B7",
-          "fingering": ["x", 2, 1, 2, 0, 2],
+          "fingering": [
+            "x",
+            2,
+            1,
+            2,
+            0,
+            2
+          ],
           "baseFret": 1
         }
       }
@@ -680,42 +1464,98 @@
       "chords": {
         "i": {
           "name": "Bm",
-          "fingering": ["x", 2, 4, 4, 3, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            3,
+            2
+          ],
           "baseFret": 2
         },
         "ii°": {
           "name": "C♯dim",
-          "fingering": ["x", 4, 5, 6, 5, "x"],
+          "fingering": [
+            "x",
+            4,
+            5,
+            6,
+            5,
+            "x"
+          ],
           "baseFret": 4
         },
         "III": {
           "name": "D",
-          "fingering": ["x", "x", 0, 2, 3, 2],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            2
+          ],
           "baseFret": 1
         },
         "iv": {
           "name": "Em",
-          "fingering": [0, 2, 2, 0, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            0,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "v": {
           "name": "F♯m",
-          "fingering": [2, 4, 4, 2, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            2,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "VI": {
           "name": "G",
-          "fingering": [3, 2, 0, 0, 0, 3],
+          "fingering": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            3
+          ],
           "baseFret": 1
         },
         "VII": {
           "name": "A",
-          "fingering": ["x", 0, 2, 2, 2, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "F♯7",
-          "fingering": [2, 4, 2, 3, 2, 2],
+          "fingering": [
+            2,
+            4,
+            2,
+            3,
+            2,
+            2
+          ],
           "baseFret": 2
         }
       }
@@ -728,42 +1568,98 @@
       "chords": {
         "i": {
           "name": "F♯m",
-          "fingering": [2, 4, 4, 2, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            2,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "ii°": {
           "name": "G♯dim",
-          "fingering": [4, 5, 6, 4, "x", "x"],
+          "fingering": [
+            4,
+            5,
+            6,
+            4,
+            "x",
+            "x"
+          ],
           "baseFret": 4
         },
         "III": {
           "name": "A",
-          "fingering": ["x", 0, 2, 2, 2, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
           "baseFret": 1
         },
         "iv": {
           "name": "Bm",
-          "fingering": ["x", 2, 4, 4, 3, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            3,
+            2
+          ],
           "baseFret": 2
         },
         "v": {
           "name": "C♯m",
-          "fingering": ["x", 4, 6, 6, 5, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            5,
+            4
+          ],
           "baseFret": 4
         },
         "VI": {
           "name": "D",
-          "fingering": ["x", "x", 0, 2, 3, 2],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            2
+          ],
           "baseFret": 1
         },
         "VII": {
           "name": "E",
-          "fingering": [0, 2, 2, 1, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            1,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "C♯7",
-          "fingering": ["x", 4, 6, 4, 6, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            4,
+            6,
+            4
+          ],
           "baseFret": 4
         }
       }
@@ -776,42 +1672,98 @@
       "chords": {
         "i": {
           "name": "C♯m",
-          "fingering": ["x", 4, 6, 6, 5, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            5,
+            4
+          ],
           "baseFret": 4
         },
         "ii°": {
           "name": "D♯dim",
-          "fingering": ["x", 6, 7, 8, 7, "x"],
+          "fingering": [
+            "x",
+            6,
+            7,
+            8,
+            7,
+            "x"
+          ],
           "baseFret": 6
         },
         "III": {
           "name": "E",
-          "fingering": [0, 2, 2, 1, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            1,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "iv": {
           "name": "F♯m",
-          "fingering": [2, 4, 4, 2, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            2,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "v": {
           "name": "G♯m",
-          "fingering": [4, 6, 6, 4, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            4,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "VI": {
           "name": "A",
-          "fingering": ["x", 0, 2, 2, 2, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            2,
+            0
+          ],
           "baseFret": 1
         },
         "VII": {
           "name": "B",
-          "fingering": ["x", 2, 4, 4, 4, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
           "baseFret": 2
         },
         "V7": {
           "name": "G♯7",
-          "fingering": [4, 6, 4, 5, 4, 4],
+          "fingering": [
+            4,
+            6,
+            4,
+            5,
+            4,
+            4
+          ],
           "baseFret": 4
         }
       }
@@ -824,42 +1776,98 @@
       "chords": {
         "i": {
           "name": "G♯m",
-          "fingering": [4, 6, 6, 4, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            4,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "ii°": {
           "name": "A♯dim",
-          "fingering": ["x", 1, 2, 3, 2, "x"],
+          "fingering": [
+            "x",
+            1,
+            2,
+            3,
+            2,
+            "x"
+          ],
           "baseFret": 1
         },
         "III": {
           "name": "B",
-          "fingering": ["x", 2, 4, 4, 4, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
           "baseFret": 2
         },
         "iv": {
           "name": "C♯m",
-          "fingering": ["x", 4, 6, 6, 5, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            5,
+            4
+          ],
           "baseFret": 4
         },
         "v": {
           "name": "D♯m",
-          "fingering": ["x", 6, 8, 8, 7, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            7,
+            6
+          ],
           "baseFret": 6
         },
         "VI": {
           "name": "E",
-          "fingering": [0, 2, 2, 1, 0, 0],
+          "fingering": [
+            0,
+            2,
+            2,
+            1,
+            0,
+            0
+          ],
           "baseFret": 1
         },
         "VII": {
           "name": "F♯",
-          "fingering": [2, 4, 4, 3, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            3,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "V7": {
           "name": "D♯7",
-          "fingering": ["x", 6, 8, 6, 8, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            6,
+            8,
+            6
+          ],
           "baseFret": 6
         }
       }
@@ -872,42 +1880,98 @@
       "chords": {
         "i": {
           "name": "D♯m",
-          "fingering": ["x", 6, 8, 8, 7, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            7,
+            6
+          ],
           "baseFret": 6
         },
         "ii°": {
           "name": "E♯dim",
-          "fingering": [1, 2, 3, 1, "x", "x"],
+          "fingering": [
+            1,
+            2,
+            3,
+            1,
+            "x",
+            "x"
+          ],
           "baseFret": 1
         },
         "III": {
           "name": "F♯",
-          "fingering": [2, 4, 4, 3, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            3,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "iv": {
           "name": "G♯m",
-          "fingering": [4, 6, 6, 4, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            4,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "v": {
           "name": "A♯m",
-          "fingering": ["x", 1, 3, 3, 2, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            2,
+            1
+          ],
           "baseFret": 1
         },
         "VI": {
           "name": "B",
-          "fingering": ["x", 2, 4, 4, 4, 2],
+          "fingering": [
+            "x",
+            2,
+            4,
+            4,
+            4,
+            2
+          ],
           "baseFret": 2
         },
         "VII": {
           "name": "C♯",
-          "fingering": ["x", 4, 6, 6, 6, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            6,
+            4
+          ],
           "baseFret": 4
         },
         "V7": {
           "name": "A♯7",
-          "fingering": ["x", 1, 3, 1, 3, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            1,
+            3,
+            1
+          ],
           "baseFret": 1
         }
       }
@@ -920,42 +1984,98 @@
       "chords": {
         "i": {
           "name": "B♭m",
-          "fingering": ["x", 1, 3, 3, 2, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            2,
+            1
+          ],
           "baseFret": 1
         },
         "ii°": {
           "name": "Cdim",
-          "fingering": ["x", 3, 4, 5, 4, "x"],
+          "fingering": [
+            "x",
+            3,
+            4,
+            5,
+            4,
+            "x"
+          ],
           "baseFret": 3
         },
         "III": {
           "name": "D♭",
-          "fingering": ["x", 4, 6, 6, 6, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            6,
+            4
+          ],
           "baseFret": 4
         },
         "iv": {
           "name": "E♭m",
-          "fingering": ["x", 6, 8, 8, 7, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            7,
+            6
+          ],
           "baseFret": 6
         },
         "v": {
           "name": "Fm",
-          "fingering": [1, 3, 3, 1, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            1,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "VI": {
           "name": "G♭",
-          "fingering": [2, 4, 4, 3, 2, 2],
+          "fingering": [
+            2,
+            4,
+            4,
+            3,
+            2,
+            2
+          ],
           "baseFret": 2
         },
         "VII": {
           "name": "A♭",
-          "fingering": [4, 6, 6, 5, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            5,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "V7": {
           "name": "F7",
-          "fingering": [1, 3, 1, 2, 1, 1],
+          "fingering": [
+            1,
+            3,
+            1,
+            2,
+            1,
+            1
+          ],
           "baseFret": 1
         }
       }
@@ -968,42 +2088,98 @@
       "chords": {
         "i": {
           "name": "Fm",
-          "fingering": [1, 3, 3, 1, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            1,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "ii°": {
           "name": "Gdim",
-          "fingering": [3, 4, 5, 3, "x", "x"],
+          "fingering": [
+            3,
+            4,
+            5,
+            3,
+            "x",
+            "x"
+          ],
           "baseFret": 3
         },
         "III": {
           "name": "A♭",
-          "fingering": [4, 6, 6, 5, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            5,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "iv": {
           "name": "B♭m",
-          "fingering": ["x", 1, 3, 3, 2, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            2,
+            1
+          ],
           "baseFret": 1
         },
         "v": {
           "name": "Cm",
-          "fingering": ["x", 3, 5, 5, 4, 3],
+          "fingering": [
+            "x",
+            3,
+            5,
+            5,
+            4,
+            3
+          ],
           "baseFret": 3
         },
         "VI": {
           "name": "D♭",
-          "fingering": ["x", 4, 6, 6, 6, 4],
+          "fingering": [
+            "x",
+            4,
+            6,
+            6,
+            6,
+            4
+          ],
           "baseFret": 4
         },
         "VII": {
           "name": "E♭",
-          "fingering": ["x", 6, 8, 8, 8, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            8,
+            6
+          ],
           "baseFret": 6
         },
         "V7": {
           "name": "C7",
-          "fingering": ["x", 3, 2, 3, 1, 0],
+          "fingering": [
+            "x",
+            3,
+            2,
+            3,
+            1,
+            0
+          ],
           "baseFret": 1
         }
       }
@@ -1016,42 +2192,98 @@
       "chords": {
         "i": {
           "name": "Cm",
-          "fingering": ["x", 3, 5, 5, 4, 3],
+          "fingering": [
+            "x",
+            3,
+            5,
+            5,
+            4,
+            3
+          ],
           "baseFret": 3
         },
         "ii°": {
           "name": "Ddim",
-          "fingering": ["x", 5, 6, 7, 6, "x"],
+          "fingering": [
+            "x",
+            5,
+            6,
+            7,
+            6,
+            "x"
+          ],
           "baseFret": 5
         },
         "III": {
           "name": "E♭",
-          "fingering": ["x", 6, 8, 8, 8, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            8,
+            6
+          ],
           "baseFret": 6
         },
         "iv": {
           "name": "Fm",
-          "fingering": [1, 3, 3, 1, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            1,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "v": {
           "name": "Gm",
-          "fingering": [3, 5, 5, 3, 3, 3],
+          "fingering": [
+            3,
+            5,
+            5,
+            3,
+            3,
+            3
+          ],
           "baseFret": 3
         },
         "VI": {
           "name": "A♭",
-          "fingering": [4, 6, 6, 5, 4, 4],
+          "fingering": [
+            4,
+            6,
+            6,
+            5,
+            4,
+            4
+          ],
           "baseFret": 4
         },
         "VII": {
           "name": "B♭",
-          "fingering": ["x", 1, 3, 3, 3, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "G7",
-          "fingering": [3, 2, 0, 0, 0, 1],
+          "fingering": [
+            3,
+            2,
+            0,
+            0,
+            0,
+            1
+          ],
           "baseFret": 1
         }
       }
@@ -1064,42 +2296,98 @@
       "chords": {
         "i": {
           "name": "Gm",
-          "fingering": [3, 5, 5, 3, 3, 3],
+          "fingering": [
+            3,
+            5,
+            5,
+            3,
+            3,
+            3
+          ],
           "baseFret": 3
         },
         "ii°": {
           "name": "Adim",
-          "fingering": [5, 6, 7, 5, "x", "x"],
+          "fingering": [
+            5,
+            6,
+            7,
+            5,
+            "x",
+            "x"
+          ],
           "baseFret": 5
         },
         "III": {
           "name": "B♭",
-          "fingering": ["x", 1, 3, 3, 3, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "iv": {
           "name": "Cm",
-          "fingering": ["x", 3, 5, 5, 4, 3],
+          "fingering": [
+            "x",
+            3,
+            5,
+            5,
+            4,
+            3
+          ],
           "baseFret": 3
         },
         "v": {
           "name": "Dm",
-          "fingering": ["x", "x", 0, 2, 3, 1],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "VI": {
           "name": "E♭",
-          "fingering": ["x", 6, 8, 8, 8, 6],
+          "fingering": [
+            "x",
+            6,
+            8,
+            8,
+            8,
+            6
+          ],
           "baseFret": 6
         },
         "VII": {
           "name": "F",
-          "fingering": [1, 3, 3, 2, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            2,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "D7",
-          "fingering": ["x", "x", 0, 2, 1, 2],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            1,
+            2
+          ],
           "baseFret": 1
         }
       }
@@ -1112,42 +2400,98 @@
       "chords": {
         "i": {
           "name": "Dm",
-          "fingering": ["x", "x", 0, 2, 3, 1],
+          "fingering": [
+            "x",
+            "x",
+            0,
+            2,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "ii°": {
           "name": "Edim",
-          "fingering": [0, 1, 2, 0, "x", "x"],
+          "fingering": [
+            0,
+            1,
+            2,
+            0,
+            "x",
+            "x"
+          ],
           "baseFret": 1
         },
         "III": {
           "name": "F",
-          "fingering": [1, 3, 3, 2, 1, 1],
+          "fingering": [
+            1,
+            3,
+            3,
+            2,
+            1,
+            1
+          ],
           "baseFret": 1
         },
         "iv": {
           "name": "Gm",
-          "fingering": [3, 5, 5, 3, 3, 3],
+          "fingering": [
+            3,
+            5,
+            5,
+            3,
+            3,
+            3
+          ],
           "baseFret": 3
         },
         "v": {
           "name": "Am",
-          "fingering": ["x", 0, 2, 2, 1, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            2,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "VI": {
           "name": "B♭",
-          "fingering": ["x", 1, 3, 3, 3, 1],
+          "fingering": [
+            "x",
+            1,
+            3,
+            3,
+            3,
+            1
+          ],
           "baseFret": 1
         },
         "VII": {
           "name": "C",
-          "fingering": ["x", 3, 2, 0, 1, 0],
+          "fingering": [
+            "x",
+            3,
+            2,
+            0,
+            1,
+            0
+          ],
           "baseFret": 1
         },
         "V7": {
           "name": "A7",
-          "fingering": ["x", 0, 2, 0, 2, 0],
+          "fingering": [
+            "x",
+            0,
+            2,
+            0,
+            2,
+            0
+          ],
           "baseFret": 1
         }
       }
@@ -1156,124 +2500,311 @@
   "progressions": [
     {
       "sequence": {
-        "basic": ["I", "IV", "V"],
-        "advanced": ["I", "IV", "ii", "V7"]
+        "basic": [
+          "I",
+          "IV",
+          "V"
+        ],
+        "advanced": [
+          "I",
+          "IV",
+          "ii",
+          "V7"
+        ]
       },
       "genre": {
-        "en": "— rock and folk foundation",
-        "cs": "— základ rocku a folku"
+        "en": "rock and folk foundation",
+        "cs": "základ rocku a folku"
       }
     },
     {
       "sequence": {
-        "basic": ["I", "V", "vi", "IV"],
-        "advanced": ["I", "V", "vi", "IV", "ii", "V7"]
+        "basic": [
+          "I",
+          "V",
+          "vi",
+          "IV"
+        ],
+        "advanced": [
+          "I",
+          "V",
+          "vi",
+          "IV",
+          "ii",
+          "V7"
+        ]
       },
       "genre": {
-        "en": "— pop \"four chords\"",
-        "cs": "— popová „čtyřka“"
+        "en": "pop \"four chords\"",
+        "cs": "popová „čtyřka“"
       }
     },
     {
       "sequence": {
-        "basic": ["vi", "IV", "I", "V"],
-        "advanced": ["vi", "IV", "I", "V7"]
+        "basic": [
+          "vi",
+          "IV",
+          "I",
+          "V"
+        ],
+        "advanced": [
+          "vi",
+          "IV",
+          "I",
+          "V7"
+        ]
       },
       "genre": {
-        "en": "— same four chords, but rooted in minor",
-        "cs": "— tatáž čtyřka vycházející z moll"
+        "en": "same four chords, but rooted in minor",
+        "cs": "tatáž čtyřka vycházející z moll"
       }
     },
     {
       "sequence": {
-        "basic": ["I", "vi", "IV", "V"],
-        "advanced": ["I", "vi", "ii", "V7"]
+        "basic": [
+          "I",
+          "vi",
+          "IV",
+          "V"
+        ],
+        "advanced": [
+          "I",
+          "vi",
+          "ii",
+          "V7"
+        ]
       },
       "genre": {
-        "en": "— 50s doo-wop",
-        "cs": "— doo-wop 50. let"
+        "en": "50s doo-wop",
+        "cs": "doo-wop 50. let"
       }
     },
     {
       "sequence": {
-        "basic": ["ii", "V", "I"],
-        "advanced": ["ii", "V7", "I", "vi"]
+        "basic": [
+          "ii",
+          "V",
+          "I"
+        ],
+        "advanced": [
+          "ii",
+          "V7",
+          "I",
+          "vi"
+        ]
       },
       "genre": {
-        "en": "— jazz turnaround",
-        "cs": "— jazzový obrat"
+        "en": "jazz turnaround",
+        "cs": "jazzový obrat"
       }
     }
   ],
   "blues": [
-    ["I", 0], ["I", 0], ["I", 0], ["I", 0], ["IV", 3], ["IV", 3], ["I", 0], ["I", 0], ["V", 4], ["IV", 3], ["I", 0], ["V", 4]
+    [
+      "I",
+      0
+    ],
+    [
+      "I",
+      0
+    ],
+    [
+      "I",
+      0
+    ],
+    [
+      "I",
+      0
+    ],
+    [
+      "IV",
+      3
+    ],
+    [
+      "IV",
+      3
+    ],
+    [
+      "I",
+      0
+    ],
+    [
+      "I",
+      0
+    ],
+    [
+      "V",
+      4
+    ],
+    [
+      "IV",
+      3
+    ],
+    [
+      "I",
+      0
+    ],
+    [
+      "V",
+      4
+    ]
   ],
   "rhythms": {
     "pop": {
       "bpm": 120,
-      "pattern": ["D", " ", "D", "U", " ", "U", "D", "U"],
-      "desc": { "en": "Standard pop/rock strumming", "cs": "Standardní pop/rockový rána" }
+      "pattern": [
+        "D",
+        " ",
+        "D",
+        "U",
+        " ",
+        "U",
+        "D",
+        "U"
+      ],
+      "desc": {
+        "en": "Standard pop/rock strumming",
+        "cs": "Standardní pop/rockový rána"
+      }
     },
     "blues": {
       "bpm": 90,
-      "pattern": ["D", "M", "D", "U", "M", "D", "U", " "],
-      "desc": { "en": "Shuffle feel with mutes", "cs": "Shuffle pocit s tlumením" }
+      "pattern": [
+        "D",
+        "M",
+        "D",
+        "U",
+        "M",
+        "D",
+        "U",
+        " "
+      ],
+      "desc": {
+        "en": "Shuffle feel with mutes",
+        "cs": "Shuffle pocit s tlumením"
+      }
     },
     "ballad": {
       "bpm": 75,
-      "pattern": ["D", " ", " ", "D", "U", " ", " ", " "],
-      "desc": { "en": "Slow expressive ballad", "cs": "Pomalá expresivní balada" }
+      "pattern": [
+        "D",
+        " ",
+        " ",
+        "D",
+        "U",
+        " ",
+        " ",
+        " "
+      ],
+      "desc": {
+        "en": "Slow expressive ballad",
+        "cs": "Pomalá expresivní balada"
+      }
     }
   },
   "minorProgressions": [
     {
       "sequence": {
-        "basic": ["i", "iv", "v"],
-        "advanced": ["i", "iv", "V7", "i"]
+        "basic": [
+          "i",
+          "iv",
+          "v"
+        ],
+        "advanced": [
+          "i",
+          "iv",
+          "V7",
+          "i"
+        ]
       },
       "genre": {
-        "en": "— rock and folk foundation in minor",
-        "cs": "— základ rocku a folku v mollu"
+        "en": "rock and folk foundation in minor",
+        "cs": "základ rocku a folku v mollu"
       }
     },
     {
       "sequence": {
-        "basic": ["i", "VI", "III", "VII"],
-        "advanced": ["i", "VI", "III", "VII", "iv", "V7"]
+        "basic": [
+          "i",
+          "VI",
+          "III",
+          "VII"
+        ],
+        "advanced": [
+          "i",
+          "VI",
+          "III",
+          "VII",
+          "iv",
+          "V7"
+        ]
       },
       "genre": {
-        "en": "— pop \"four chords\"",
-        "cs": "— popové „čtyři akordy“"
+        "en": "pop \"four chords\"",
+        "cs": "popové „čtyři akordy“"
       }
     },
     {
       "sequence": {
-        "basic": ["i", "VII", "VI", "V7"],
-        "advanced": ["i", "VII", "VI", "ii°", "V7"]
+        "basic": [
+          "i",
+          "VII",
+          "VI",
+          "V7"
+        ],
+        "advanced": [
+          "i",
+          "VII",
+          "VI",
+          "ii°",
+          "V7"
+        ]
       },
       "genre": {
-        "en": "— Andalusian cadence (stepwise descent)",
-        "cs": "— andaluska kadence (sestupný postup)"
+        "en": "Andalusian cadence (stepwise descent)",
+        "cs": "andaluska kadence (sestupný postup)"
       }
     },
     {
       "sequence": {
-        "basic": ["i", "VI", "iv", "V7"],
-        "advanced": ["i", "VI", "ii°", "V7", "i"]
+        "basic": [
+          "i",
+          "VI",
+          "iv",
+          "V7"
+        ],
+        "advanced": [
+          "i",
+          "VI",
+          "ii°",
+          "V7",
+          "i"
+        ]
       },
       "genre": {
-        "en": "— 50s doo-wop, minor flavour",
-        "cs": "— doo-wop 50. let v mollu"
+        "en": "50s doo-wop, minor flavour",
+        "cs": "doo-wop 50. let v mollu"
       }
     },
     {
       "sequence": {
-        "basic": ["ii°", "V7", "i"],
-        "advanced": ["ii°", "V7", "i", "VI", "ii°", "V7"]
+        "basic": [
+          "ii°",
+          "V7",
+          "i"
+        ],
+        "advanced": [
+          "ii°",
+          "V7",
+          "i",
+          "VI",
+          "ii°",
+          "V7"
+        ]
       },
       "genre": {
-        "en": "— jazz turnaround in minor",
-        "cs": "— jazzový obrat v mollu"
+        "en": "jazz turnaround in minor",
+        "cs": "jazzový obrat v mollu"
       }
     }
   ]
