@@ -369,7 +369,7 @@ const App = () => {
 
                 <section className="bg-white p-6 rounded-2xl shadow-sm">
                     <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.rhythmsGuide}</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="flex flex-col gap-6">
                         {Object.entries(data.rhythms || {}).map(([key, rhythm]) => (
                             <div key={key} className="flex flex-col gap-3 p-4 rounded-xl border border-gray-100 bg-gray-50/50">
                                 <div className="flex items-center justify-between">
@@ -379,7 +379,7 @@ const App = () => {
                                 <p className="text-sm text-gray-600 italic">
                                     {typeof rhythm.desc === 'object' ? rhythm.desc[lang] : rhythm.desc}
                                 </p>
-                                <div className="flex flex-nowrap gap-1 justify-center py-2 overflow-x-auto">
+                                <div className="flex flex-nowrap gap-1 justify-start py-2 overflow-x-auto">
                                     {rhythm.pattern.map((step, i) => {
                                         const symbols = { 'D': '↓', 'U': '↑', 'M': 'X' };
                                         return (

@@ -2700,6 +2700,57 @@
         "en": "Slow expressive ballad",
         "cs": "Pomalá expresivní balada"
       }
+    },
+    "waltz": {
+      "bpm": 80,
+      "pattern": [
+        "D",
+        " ",
+        " ",
+        "D",
+        "U",
+        " ",
+        " ",
+        " "
+      ],
+      "desc": {
+        "en": "Classical 3/4 waltz",
+        "cs": "Klasický valčík 3/4"
+      }
+    },
+    "country": {
+      "bpm": 110,
+      "pattern": [
+        "D",
+        " ",
+        "D",
+        "U",
+        "D",
+        " ",
+        "U",
+        "D"
+      ],
+      "desc": {
+        "en": "Country boom-chick",
+        "cs": "Country boom-chick"
+      }
+    },
+    "rock_steady": {
+      "bpm": 100,
+      "pattern": [
+        "D",
+        "M",
+        " ",
+        "D",
+        "U",
+        "M",
+        " ",
+        "U"
+      ],
+      "desc": {
+        "en": "Rocksteady syncopation",
+        "cs": "Rocksteady synkopa"
+      }
     }
   },
   "minorProgressions": [
