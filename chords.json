@@ -2504,7 +2504,10 @@
         "IV",
         "V"
       ],
-      "genre": "základ rocku a folku"
+      "genre": {
+        "en": "rock and folk foundation",
+        "cs": "základ rocku a folku"
+      }
     },
     {
       "sequence": [
@@ -2513,7 +2516,10 @@
         "vi",
         "IV"
       ],
-      "genre": "popová „čtyřka“"
+      "genre": {
+        "en": "pop \"four chords\"",
+        "cs": "popová „čtyřka“"
+      }
     },
     {
       "sequence": [
@@ -2522,7 +2528,10 @@
         "I",
         "V"
       ],
-      "genre": "tutéž čtyřka, ale domov v molu"
+      "genre": {
+        "en": "same four chords, but rooted in minor",
+        "cs": "tutéž čtyřka, ale domov v molu"
+      }
     },
     {
       "sequence": [
@@ -2531,7 +2540,10 @@
         "IV",
         "V"
       ],
-      "genre": "doo-wop 50. let"
+      "genre": {
+        "en": "50s doo-wop",
+        "cs": "doo-wop 50. let"
+      }
     },
     {
       "sequence": [
@@ -2539,7 +2551,10 @@
         "V",
         "I"
       ],
-      "genre": "jazzový obrat"
+      "genre": {
+        "en": "jazz turnaround",
+        "cs": "jazzový obrat"
+      }
     }
   ],
   "blues": [
