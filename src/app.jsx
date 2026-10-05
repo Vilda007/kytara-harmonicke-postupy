@@ -10,6 +10,9 @@ const I18N = {
         currentKey: "Current Key",
         diatonicChords: "Diatonic Chords",
         provenProgressions: "Proven Progressions",
+        rhythmsGuide: "Rhythm Guide",
+        basic: "Basic",
+        advanced: "Advanced",
         // Chord roles
         "I": "Tonic", "i": "Tonic",
         "IV": "Subdominant", "iv": "Subdominant",
@@ -33,6 +36,9 @@ const I18N = {
         currentKey: "Aktuální tónina",
         diatonicChords: "Diatonické akordy",
         provenProgressions: "Osvědčené postupy",
+        rhythmsGuide: "Průvodce rytmy",
+        basic: "Základní",
+        advanced: "Pokročilé",
         // Chord roles
         "I": "tónika", "i": "tónika",
         "IV": "subdominanta", "iv": "subdominanta",
@@ -185,6 +191,7 @@ const App = () => {
     const [data, setData] = useState(null);
     const [lang, setLang] = useState('en');
     const [activeKey, setActiveKey] = useState({ symbol: 'C', type: 'major', position: 0 });
+    const [isAdvanced, setIsAdvanced] = useState(false);
     const [playbackState, setPlaybackState] = useState({
         isPlaying: false,
         isMuted: false,
@@ -303,19 +310,15 @@ const App = () => {
         const baseBpm = rhythmData.bpm || 120;
         const pattern = rhythmData.pattern || ["D"];
 
-        const sequence = prog.sequence;
+        const sequence = isAdvanced ? prog.sequence.advanced : prog.sequence.basic;
         let currentStep = 0;
         let currentChordIdx = 0;
 
         const playNextStep = () => {
-            // The loop is stopped via timerRef (handleStop clears it) — checking
-            // playbackState.isPlaying here would read a stale closure snapshot
-            // (false at click time) and kill playback on the first step.
             const stepType = pattern[currentStep % pattern.length];
             const chord = currentKeyData.chords[sequence[currentChordIdx]];
             const freqs = audioEngine.getChordFrequencies(chord);
 
-            // Only play if NOT muted (live mirror — closure over state is stale); guard null freqs (missing shapes)
             if (freqs && !mutedRef.current) {
                 if (stepType === 'D') {
                     audioEngine.playStrum(freqs, 'down', audioEngine.ctx.currentTime);
@@ -327,9 +330,6 @@ const App = () => {
             }
 
             currentStep++;
-            // Advance chords per rhythm-cell, not per fixed 4 steps — all rhythm
-            // patterns are 8 eighth-note cells, so a chord change every 4
-            // would race changes at double speed (H1).
             if (currentStep % pattern.length === 0) {
                 currentChordIdx++;
                 if (currentChordIdx >= sequence.length) {
@@ -338,7 +338,6 @@ const App = () => {
                 setPlaybackState(prev => ({ ...prev, currentChordIndex: currentChordIdx }));
             }
 
-            // Recalculate duration in case BPM changed mid-playback
             const activeBpm = bpmRef.current || baseBpm;
             const currentDuration = 60 / activeBpm / 2;
 
@@ -369,19 +368,44 @@ const App = () => {
                 </section>
 
                 <section className="bg-white p-6 rounded-2xl shadow-sm">
-                    <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.diatonicChords}</h3>
-                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 items-start">
-                        {Object.entries(currentKeyData?.chords || {}).map(([role, chord]) => (
-                            <div key={role} className="flex flex-col items-center">
-                                <div className="px-3 py-1 rounded-full text-xs font-bold mb-2 h-8 flex items-center justify-center text-center cursor-pointer hover:brightness-90 transition-all"
-                                     onClick={(e) => {
-                                         e.stopPropagation();
-                                         handlePlayChord(chord);
-                                     }}
-                                     style={{backgroundColor: 'var(--neutral)', color: COLOR_MAP[role] || 'var(--fg)'}}>
-                                    {role} {t[role] ? `· ${t[role]}` : ''}
+                    <h3 className="text-lg font-bold mb-6 border-b pb-2">{t.rhythmsGuide}</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        {Object.entries(data.rhythms || {}).map(([key, rhythm]) => (
+                            <div key={key} className="flex flex-col gap-3 p-4 rounded-xl border border-gray-100 bg-gray-50/50">
+                                <div className="flex items-center justify-between">
+                                    <span className="font-bold capitalize text-gray-800">{key}</span>
+                                    <span className="text-xs font-mono text-gray-500">{rhythm.bpm} BPM</span>
                                 </div>
-                                <ChordDiagram chord={chord} numeral={role} lang={lang} />
+                                <p className="text-sm text-gray-600 italic">
+                                    {typeof rhythm.desc === 'object' ? rhythm.desc[lang] : rhythm.desc}
+                                </p>
+                                <div className="flex flex-wrap gap-1 justify-center py-2">
+                                    {rhythm.pattern.map((step, i) => (
+                                        <div key={i} className="w-6 h-8 flex items-center justify-center rounded bg-white border border-gray-200 text-xs font-bold text-gray-400">
+                                            {step === ' ' ? '' : step}
+                                        </div>
+                                    ))}
+                                </div>
+                                <button
+                                    onClick={() => {
+                                        audioEngine.init();
+                                        const baseBpm = rhythm.bpm || 120;
+                                        const pattern = rhythm.pattern || ["D"];
+                                        const playCycle = async () => {
+                                            for(let i=0; i < pattern.length; i++) {
+                                                const stepType = pattern[i];
+                                                if (stepType === 'D') audioEngine.playStrum([440, 554.37, 659.25], 'down', audioEngine.ctx.currentTime);
+                                                else if (stepType === 'U') audioEngine.playStrum([440, 554.37, 659.25], 'up', audioEngine.ctx.currentTime);
+                                                else if (stepType === 'M') audioEngine.playMute(audioEngine.ctx.currentTime);
+                                                await new Promise(r => setTimeout(r, (60 / baseBpm / 2) * 1000));
+                                            }
+                                        };
+                                        playCycle();
+                                    }}
+                                    className="mt-auto py-2 px-4 bg-white border border-gray-200 rounded-lg text-xs font-bold text-gray-600 hover:bg-gray-50 transition-all shadow-sm"
+                                >
+                                    {lang === 'en' ? 'Preview' : 'Náhled'}
+                                </button>
                             </div>
                         ))}
                     </div>
@@ -389,7 +413,23 @@ const App = () => {
 
                 <section className="bg-white p-6 rounded-2xl shadow-sm">
                     <div className="flex items-center justify-between mb-6 border-b pb-2">
-                        <h3 className="text-lg font-bold">{t.provenProgressions}</h3>
+                        <div className="flex items-center gap-4">
+                            <h3 className="text-lg font-bold">{t.provenProgressions}</h3>
+                            <div className="flex bg-gray-100 p-1 rounded-lg border border-gray-200">
+                                <button
+                                    onClick={() => setIsAdvanced(false)}
+                                    className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${!isAdvanced ? 'bg-white text-amber-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                                >
+                                    {t.basic}
+                                </button>
+                                <button
+                                    onClick={() => setIsAdvanced(true)}
+                                    className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${isAdvanced ? 'bg-white text-amber-600 shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                                >
+                                    {t.advanced}
+                                </button>
+                            </div>
+                        </div>
 
                         {playbackState.isPlaying && (
                             <div className="flex items-center gap-4 bg-gray-50 p-2 rounded-full px-4 border border-gray-200">
@@ -421,50 +461,51 @@ const App = () => {
                         )}
                     </div>
                     <div className="space-y-6">
-                        {(activeKey.type === 'minor' ? (data.minorProgressions || data.progressions) : data.progressions).map((prog, i) => (
-                            <div
-                                key={i}
-                                onClick={() => handlePlayProgression(i, prog)}
-                                className={`flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${playbackState.currentProgIndex === i ? 'bg-amber-50 ring-1 ring-amber-200' : 'hover:bg-gray-50'}`}
-                            >
-                                <div className="flex items-center gap-3">
-                                    <div className="flex gap-2">
-                                        {prog.sequence.map((role, idx) => {
-                                            const chord = currentKeyData?.chords[role];
-                                            const isActive = playbackState.currentProgIndex === i && playbackState.currentChordIndex === idx;
-                                            return (
-                                                <span
-                                                    key={idx}
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        handlePlayChord(chord);
-                                                    }}
-                                                    className={`px-2 py-1 rounded font-bold text-sm transition-all cursor-pointer hover:brightness-90 ${isActive ? 'bg-amber-400 text-white scale-110 shadow-sm' : 'bg-gray-100'}`}
-                                                      style={{color: isActive ? 'white' : (COLOR_MAP[role] || 'var(--fg)')}}>
+                        {(activeKey.type === 'minor' ? (data.minorProgressions || data.progressions) : data.progressions).map((prog, i) => {
+                            const sequence = isAdvanced ? prog.sequence.advanced : prog.sequence.basic;
+                            return (
+                                <div
+                                    key={i}
+                                    onClick={() => handlePlayProgression(i, prog)}
+                                    className={`flex items-center justify-between p-3 rounded-lg transition-all cursor-pointer ${playbackState.currentProgIndex === i ? 'bg-amber-50 ring-1 ring-amber-200' : 'hover:bg-gray-50'}`}
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className="flex gap-2">
+                                            {sequence.map((role, idx) => {
+                                                const chord = currentKeyData?.chords[role];
+                                                const isActive = playbackState.currentProgIndex === i && playbackState.currentChordIndex === idx;
+                                                return (
+                                                    <span
+                                                        key={idx}
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handlePlayChord(chord);
+                                                        }}
+                                                        className={`px-2 py-1 rounded font-bold text-sm transition-all cursor-pointer hover:brightness-90 ${isActive ? 'bg-amber-400 text-white scale-110 shadow-sm' : 'bg-gray-100'}`}
+                                                          style={{color: isActive ? 'white' : (COLOR_MAP[role] || 'var(--fg)')}}>
                                                     {chord ? chord.name : role}
-                                                </span>
-                                            );
-                                        })}
+                                                    </span>
+                                                );
+                                            })}
+                                        </div>
+                                        <span className="text-gray-400 text-sm">—</span>
+                                        <span className="text-sm font-medium">{typeof prog.genre === 'object' ? prog.genre[lang] : prog.genre}</span>
                                     </div>
-                                    <span className="text-gray-400 text-sm">—</span>
-                                    <span className="text-sm font-medium">{typeof prog.genre === 'object' ? prog.genre[lang] : prog.genre}</span>
+                                    {playbackState.currentProgIndex === i && (
+                                        <div className="text-amber-600 animate-pulse text-xs font-bold">
+                                            {lang === 'en' ? 'Playing...' : 'Hrají...'}
+                                        </div>
+                                    )}
                                 </div>
-                                {playbackState.currentProgIndex === i && (
-                                    <div className="text-amber-600 animate-pulse text-xs font-bold">
-                                        {lang === 'en' ? 'Playing...' : 'Hrají...'}
-                                    </div>
-                                )}
-                            </div>
-                        ))}
+                            );
+                        })},
                         {/* 12-bar blues as a playable progression (blues rhythm = data.rhythms.blues) */}
                         {data.blues && data.rhythms && (() => {
                             const isMinor = activeKey.type === 'minor';
-                            // minor blues = harmonic-minor form i×4–iv×2–i×2–V7–iv–i–V7 (matches the sheets/book);
-                            // major: V bars use the V7 data (proper dominant-7 shape)
                             const seqRoles = isMinor
                                 ? ['i', 'i', 'i', 'i', 'iv', 'iv', 'i', 'i', 'V7', 'iv', 'i', 'V7']
                                 : data.blues.map(b => { const r = (typeof b === 'string' ? b : b[0]); return r === 'V' ? 'V7' : r; });
-                            const prog = { sequence: seqRoles, genre: t.bluesGenre, rhythm: 'blues' };
+                            const prog = { sequence: { basic: seqRoles, advanced: seqRoles }, genre: t.bluesGenre, rhythm: 'blues' };
                             const progCount = (isMinor ? (data.minorProgressions || data.progressions) : data.progressions).length;
                             const blIndex = progCount;
                             const active = playbackState.currentProgIndex === blIndex;
